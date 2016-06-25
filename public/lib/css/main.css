@@ -1,0 +1,53 @@
+/*Main components*/
+/*--------------*/
+.all-content{
+    position: relative;
+    background: red;
+    margin-top: 100px;
+}
+
+.page-header{
+    position: fixed;
+    top: 0;
+    width:  100%;
+    height: 100px;
+}
+.page-main>*{
+    position: absolute;
+}
+
+.page-footer{
+    position: fixed;
+    bottom: 0;
+    width:  100%;
+    height: 10%
+}
+
+/*Inside Main components*/
+.page-main-content{
+    left: 200px;
+    right: 200px;
+    margin-left: 15px;
+    margin-right: 15px;
+    padding: 5px;
+    background: red;
+}
+
+.page-aside-left{
+    background: #f0f0f0;
+    width: 200px;
+    padding: 5px;
+}
+
+.page-aside-rigth{
+    background: #f0f0f0;
+    width: 200px;
+    right: 0;
+    padding: 5px;
+}
+
+/*Inside Componetns*/
+/*----------------*/
+.button-like{
+    color:blue;
+}
