@@ -9,35 +9,60 @@
 
 <body>
     <header class="page-header">
-        <h1>Это великолепный сайтец! Типо твиттер</h1>
+        <div class="topbar">
+            <div class="topbar-container">
+                <a href="/" class="icon-tasbar">Супер Ask</a>
+                <div class="topbar-right-user">
+                    <a href="#">Зарегистрироваться</a>
+                    <a href="#">Войти</a>
+                </div>
+            </div>
+        </div>
     </header>
 
     <div class="all-content">
+        <div class="rsp-container">
+            <main class="page-main">
 
-        <main class="page-main">
-            <aside class="page-aside-left">
-                <p>tage aside left</p>
-                <!-- There is react app -->
-                <div id="person-viewer"></div>
-                <!-- -->
-            </aside>
-            <div class="page-main-content">
-                <p>Супер контент тут</p>
-            </div>
-            <aside class="page-aside-rigth">
-                <p>tage aside right</p>
-            </aside>
-        </main>
+                <div class="person-profile">
+                    <div class="person-profile-background">
+                        <div class="person-overlay">
+                            <div class="person-profile-wrapper">
+                                <a id="profile-picture"></a>
+                                <a class="profile-name">
+                                    <span class="block-link">Einshtein</span>
+                                    <span class="block-link">@id1</span>
+                                </a>
+                                <div class="profile-label">
+                                    <a class="profile-button">
+                                        Follow
+                                    </a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                    
+                    <div class="person-nav-menu">
+                        <nav class="menu-nav-bar">
+                            <a class></a>
+                            <a></a>
+                            <a></a>
+                        </nav>
+                    </div>
+                </div>
 
-        <footer class="page-footer">
-            <section>
-                <p>
-                    Here is footer maaan!!
-                </p>
-            </section>
+            </main>
 
-        </footer>
+            <footer class="page-footer">
+                <section>
+                    <p>
+                        Here is footer maaan!!
+                    </p>
+                </section>
 
+            </footer>
+        </div>
     </div>
     <script src="lib/source.js" charset="utf-8"></script>
 </body>

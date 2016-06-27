@@ -2,7 +2,7 @@ import React from 'react';
 import $ from 'jquery';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import actions from './redux/actions';
+import actions from '../redux/actions';
 
 
 
@@ -18,7 +18,7 @@ class ImagePerson extends React.Component{
 }
 
 
-class UserInfo extends React.Component{
+class UsersInfo extends React.Component{
     constructor(){
         super();
     }
@@ -27,17 +27,14 @@ class UserInfo extends React.Component{
         this.props.createNewUserId();
     }
 
-    handleFocus(e){
-        console.log(e.target);
-    }
-
     render(){
+        console.log(this.props);
         return(
             <div>
-                <div>username : {this.props.user.username}</div>
-                <div>id : {this.props.user.id}</div>
+                <h3>And this user info</h3>
+                <p>Name : {this.props.user.first_name}</p>
+                <p>Name : {this.props.user.second_name}</p>
                 <button onClick={this.handleNewId.bind(this)}>UpdateRandom</button>
-                <div ><p onMouseOver={this.handleFocus.bind(this)}>Some incredible Text</p></div>
             </div>
         );
     }
@@ -48,34 +45,51 @@ class Person extends React.Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            users: {
+                data: []
+            }
         };
     }
 
 
-    loadImageFromServ(){
+    loadAllUsers(){
+
         $.ajax({
-            url: 'lib/data/img.json',
+            url: 'lib/data/person_info.json',
             dataType: 'json',
             type: 'GET',
             success: function(data) {
-                this.setState({data: data});
+                this.setState ({
+                    users: {
+                        data
+                    }
+                });
+                this.props.actions.setAllUsers(data);
             }.bind(this),
             error: function(xhr, status, err) {
                 console.error(this.props.url, status, err.toString());
             }
         });
+
     }
 
     componentDidMount(){
-        this.loadImageFromServ();
+        this.loadAllUsers();
+        //setTimeout(() =>{
+            //this.loadAllUsers();
+        //},2000);
     }
 
 
     render() {
         return (
             <div>
-                <UserInfo user={this.props.user} createNewUserId={this.props.actions.createNewUserId} />
+            {
+                this.props.users.map((data) => {
+                    console.log(data);
+                    return <UsersInfo user={data} createNewUserId={this.props.actions.createNewUserId} key={data.id} />;
+                })
+            }
                 <ImagePerson photos={this.state.data} todos={this.props.todos}/>
             </div>
         );
@@ -89,7 +103,7 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(state){
     return {
-        user:  state.user
+        users:  state.users
     };
 }
 

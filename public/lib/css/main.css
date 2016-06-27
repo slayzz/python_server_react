@@ -1,19 +1,56 @@
-/*Main components*/
-/*--------------*/
-.all-content{
-    position: relative;
-    background: red;
-    margin-top: 100px;
-}
+/*Header components*/
+/*----------------*/
 
 .page-header{
+    background: #FFF;
     position: fixed;
-    top: 0;
+    left:0px;
+    top: 0px;
     width:  100%;
-    height: 100px;
+    z-index: 1000;
+    min-width: 320px;
+    padding: 0px;
+    margin:0px;
+    height: 39px;
 }
-.page-main>*{
-    position: absolute;
+
+.topbar{
+    display: block;
+}
+
+.topbar-container{
+    max-width: 950px;
+    margin:0 auto;
+    text-align: center;
+}
+
+.icon-tasbar{
+    float:left;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 25px;
+}
+.topbar-right-user{
+    display:inline-block;
+    float: right;
+}
+
+
+/*Main components*/
+/*--------------*/
+
+
+
+body{
+    background: #434A50;
+}
+.all-content{
+    background: ''
+}
+
+.rsp-container{
+    max-width: 950px;
+    margin:0 auto;
 }
 
 .page-footer{
@@ -24,25 +61,104 @@
 }
 
 /*Inside Main components*/
+
+
+/*Proifle*/
+/*------*/
+.person-profile{
+    padding: 0px;
+    margin:0px;
+    background: #FFF;
+}
+
+.person-profile-background{
+    background-image: url(/lib/img/beautiful-background.png);
+    background-color: #23466b;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: local;
+}
+
+.person-overlay{
+    /*background: url(/lib/img/beautiful-background.jpg) repeat 0 0;*/
+    padding-bottom:15px;
+    position: relative;
+    padding-top: 45px;
+}
+
+.person-profile-wrapper{
+    position: relative;
+    width: 100%;
+    text-align: center;
+    
+}
+#profile-picture{
+    background-image: url(/lib/img/einshtein.jpg);
+    display: block; 
+    width: 85px;
+    height: 85px;
+    background-size: 85px 85px;
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    margin: 0 auto 10px;
+    position: relative;
+    border-radius: 45px;
+    cursor: pointer;
+}
+.profile-name{
+     color: #FFF;
+     display: inline-block;
+     text-align: center;
+     max-width: 100%;
+     margin-bottom: 20px;
+}
+.block-link{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 18px;
+    text-align: center;
+    text-shadow: 0 0 1px #333;
+    white-space: nowrap;
+    display: block;
+    font-weight: bold;
+    margin-top: 3px;
+    
+}
+
+.profile-label{
+    display: block;
+    padding-bottom: 10px;
+}
+
+.profile-button::before{
+    content: '';
+}
+
+.profile-button{
+    background-color: rgba(74,74,74,0.8);
+    color: #FFF;
+    font-weight: 100;
+    border-radius: 17px;
+    margin-top: 15px;
+    padding: 8px 25px;
+}
+
+/*------------------*/
+
 .page-main-content{
-    left: 200px;
-    right: 200px;
     margin-left: 15px;
     margin-right: 15px;
     padding: 5px;
-    background: red;
 }
 
 .page-aside-left{
     background: #f0f0f0;
-    width: 200px;
     padding: 5px;
 }
 
 .page-aside-rigth{
     background: #f0f0f0;
-    width: 200px;
-    right: 0;
     padding: 5px;
 }
 

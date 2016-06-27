@@ -1,3 +1,6 @@
+import $ from 'jquery';
+
+
 let actions = {
 
     addTodo: (text) => {
@@ -26,6 +29,12 @@ let actions = {
             type: 'CREATE_USER_ID',
             id: Math.round(Math.random() * 100)
         };
+    },
+    setAllUsers: (data) => {
+        return {
+            type: 'SET_ALL_USERS',
+            data
+        }
     }
 
 };

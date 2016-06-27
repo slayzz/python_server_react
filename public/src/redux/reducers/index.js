@@ -4,7 +4,7 @@ import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
     todos: tweetReducer,
-    user: userReducer
+    users: userReducer
 });
 
 export default rootReducer;

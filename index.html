@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css" media="screen">
+              body {
+        height: 200px;
+        background: beige;
+      }
+      .dot {
+        height: 8px; width: 8px;
+        border-radius: 4px; /* скруглённые углы */
+        background: blue;
+        position: absolute;
+      }
+    </style>
+</head>
+<body>
+    <div>
+        <p id="some2">
+            <button id="some" type="submit">Hello</button>
+        </p>
+    </div>
+    <script type="text/javascript" charset="utf-8">
+        var element = document.getElementById('some');
+        var p = document.getElementById('some2');
+        p.addEventListener('mousedown', function(e){
+        });
+        element.addEventListener('mousedown',function(e){
+            var dot = document.createElement("div");
+            dot.className = "dot";
+            dot.style.left = (event.pageX - 4) + "px";
+            dot.style.top = (event.pageY - 4) + "px";
+            document.body.appendChild(dot);
+            console.log(dot);
+        });
+    </script>
+</body>
+</html>
