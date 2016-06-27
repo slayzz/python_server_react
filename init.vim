@@ -245,6 +245,7 @@
     let g:pymode = 1
 
 
+    
 
     "autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
     let g:UltiSnipsUsePythonVersion = 3
@@ -261,6 +262,8 @@
     "let g:jsx_pragma_required = 1
     let g:syntastic_javascript_checkers = ['eslint']
     set background=dark         " Assume a dark background
+
+    "Font name Fantasque 
 
     " Allow to trigger background
     function! ToggleBG()
