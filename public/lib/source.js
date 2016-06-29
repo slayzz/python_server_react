@@ -20663,9 +20663,36 @@
 	                    _react2.default.createElement(
 	                        "nav",
 	                        { className: "menu-nav-bar" },
-	                        _react2.default.createElement("a", { className: true }),
-	                        _react2.default.createElement("a", null),
-	                        _react2.default.createElement("a", null)
+	                        _react2.default.createElement(
+	                            "a",
+	                            null,
+	                            _react2.default.createElement(
+	                                "div",
+	                                null,
+	                                "1234"
+	                            ),
+	                            "Answers"
+	                        ),
+	                        _react2.default.createElement(
+	                            "a",
+	                            null,
+	                            _react2.default.createElement(
+	                                "div",
+	                                null,
+	                                "234"
+	                            ),
+	                            "Likes"
+	                        ),
+	                        _react2.default.createElement(
+	                            "a",
+	                            null,
+	                            _react2.default.createElement(
+	                                "div",
+	                                null,
+	                                "1"
+	                            ),
+	                            "Gifts"
+	                        )
 	                    )
 	                );
 	            }

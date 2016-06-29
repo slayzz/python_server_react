@@ -91,11 +91,11 @@ body{
     position: relative;
     width: 100%;
     text-align: center;
-    
+
 }
 #profile-picture{
     background-image: url(/lib/img/einshtein.jpg);
-    display: block; 
+    display: block;
     width: 85px;
     height: 85px;
     background-size: 85px 85px;
@@ -123,7 +123,7 @@ body{
     display: block;
     font-weight: bold;
     margin-top: 3px;
-    
+
 }
 
 .profile-label{
@@ -144,6 +144,32 @@ body{
     padding: 8px 25px;
 }
 
+.person-nav-menu{
+    display: block;
+}
+.menu-nav-bar{
+    background: #FFF;
+    border-bottom: none;
+    line-height: 45px;
+    text-align: center;
+    border-top: 1px solid #dbdbdb;
+    overflow: hidden;
+}
+.menu-nav-bar a{
+    width: 33.33%;
+    float : left;
+    padding: 5px 0;
+    cursor: pointer;
+    line-height: 1;
+}
+.menu-nav-bar>a{
+    color: #B4B4B4;
+}
+.menu-nav-bar>a>div{
+    font-size: 20px;
+    padding: 3px 0 2px;
+    color: #FF643C
+}
 /*------------------*/
 
 .page-main-content{

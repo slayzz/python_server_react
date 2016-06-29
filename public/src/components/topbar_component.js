@@ -29,7 +29,6 @@ class Profile extends React.Component{
     }
 }
 
-
 class Buttons extends React.Component{
     constructor() {
         super();
@@ -41,9 +40,15 @@ class Buttons extends React.Component{
         return (
             <div className="person-nav-menu">
                 <nav className="menu-nav-bar">
-                    <a className></a>
-                    <a></a>
-                    <a></a>
+                    <a>
+                        <div>1234</div>Answers
+                    </a>
+                    <a>
+                        <div>234</div>Likes
+                    </a>
+                    <a>
+                        <div>1</div>Gifts
+                    </a>
                 </nav>
             </div>
         );
@@ -71,5 +76,3 @@ export default class TopBar extends React.Component {
         );
     }
 }
-
-
