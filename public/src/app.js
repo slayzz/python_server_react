@@ -5,6 +5,7 @@ import React from 'react';
 
 import Header from './components/header_component';
 import TopBar from './components/topbar_component';
+import Main from './components/main_component';
 
 import configureStore from './redux/store';
 import { Provider } from 'react-redux';
@@ -30,6 +31,7 @@ ReactDOM.render(
             <div className="rsp-container">
                 <main className="page-main">
                     <TopBar />
+                    <Main />
                 </main>
             </div>
         </div>

@@ -1,3 +1,13 @@
+a{
+    color: #ff6647;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+div{
+    display: block;
+}
+
 /*Header components*/
 /*----------------*/
 
@@ -168,10 +178,101 @@ body{
 .menu-nav-bar>a>div{
     font-size: 20px;
     padding: 3px 0 2px;
-    color: #FF643C
+    color: #FF643C;
 }
-/*------------------*/
 
+
+/* Main Band */
+/*------------*/
+
+.main-content{
+    padding: 8px 0;
+}
+
+.item-pager{
+    float: left;
+    width: 642px;
+
+}
+.stream-item-content{
+        margin: 0 30px 0 20px;
+}
+
+.stream-item{
+    padding-top: 15px;
+    padding-bottom: 0px;
+    background-color: #fff;
+    border-bottom: 8px solid #EDEEF2;
+    padding: 20px 0;
+    position: relative;
+}
+
+/*Stream Item*/
+/*----------*/
+.stream-item-question{
+    margin-bottom: 0;
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 22px;
+    margin-left: 20px;
+    margin-bottom: 5px;
+    word-wrap: break-word;
+
+}
+
+.stream-item-answer{
+    margin-top: 10px;
+    padding-bottom: 1px;
+    word-wrap: break-word;
+    font-size: 16px;
+    line-height: 20px;
+}
+
+
+.stream-item-footer{
+    overflow: hidden;
+    padding: 4px 0;
+}
+
+.stream-item-link-a{
+    color: #c0c0c0;
+    text-overflow: ellipsis;
+    float: left;
+    font-size: 12px;
+    margin: 5px 0 0 0;
+    max-width: 80%;
+}
+.stream-item-options{
+    border-top: solid 1px #edeef2;
+    margin-top: 10px;
+    padding: 8px 0px;
+    font-size: 14px;
+    line-height: 18px;
+    height: 18px;
+    position: relative;
+}
+.like-button{
+    float: left;
+}
+
+.icon-like{
+    color: #c0c0c0;
+    float: left;
+    font-size: 20px;
+}
+.counter{
+    color: #4a4a4a;
+    padding: 0 10px;
+    font-size: 16px;
+}
+.icon-like::before{
+    /*content:'';*/
+    content: '❤  ';
+}
+
+
+/*----------------*/
 .page-main-content{
     margin-left: 15px;
     margin-right: 15px;
