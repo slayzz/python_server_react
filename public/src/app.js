@@ -29,10 +29,8 @@ ReactDOM.render(
         <Header />
         <div className="all-content">
             <div className="rsp-container">
-                <main className="page-main">
                     <TopBar />
                     <Main />
-                </main>
             </div>
         </div>
     </div>

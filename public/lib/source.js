@@ -91,12 +91,8 @@
 	            _react2.default.createElement(
 	                'div',
 	                { className: 'rsp-container' },
-	                _react2.default.createElement(
-	                    'main',
-	                    { className: 'page-main' },
-	                    _react2.default.createElement(_topbar_component2.default, null),
-	                    _react2.default.createElement(_main_component2.default, null)
-	                )
+	                _react2.default.createElement(_topbar_component2.default, null),
+	                _react2.default.createElement(_main_component2.default, null)
 	            )
 	        )
 	    ), document.getElementById('container'));
@@ -20741,14 +20737,16 @@
 /* 170 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(162)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _react) {
-	    "use strict";
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(162), __webpack_require__(198)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _react, _right_component) {
+	    'use strict';
 
 	    Object.defineProperty(exports, "__esModule", {
 	        value: true
 	    });
 
 	    var _react2 = _interopRequireDefault(_react);
+
+	    var _right_component2 = _interopRequireDefault(_right_component);
 
 	    function _interopRequireDefault(obj) {
 	        return obj && obj.__esModule ? obj : {
@@ -20817,41 +20815,41 @@
 	        }
 
 	        _createClass(ItemOfBand, [{
-	            key: "render",
+	            key: 'render',
 	            value: function render() {
 	                return _react2.default.createElement(
-	                    "div",
-	                    { className: "stream-item" },
+	                    'div',
+	                    { className: 'stream-item' },
 	                    _react2.default.createElement(
-	                        "h1",
-	                        { className: "stream-item-content stream-item-question" },
-	                        "Какой у тебя нос?"
+	                        'h1',
+	                        { className: 'stream-item-content stream-item-question' },
+	                        'Какой у тебя нос?'
 	                    ),
 	                    _react2.default.createElement(
-	                        "p",
-	                        { className: "stream-item-content stream-item-answer" },
-	                        "Ты даже представить себе не можешь, жалкий человечишка"
+	                        'p',
+	                        { className: 'stream-item-content stream-item-answer' },
+	                        'Ты даже представить себе не можешь, жалкий человечишка'
 	                    ),
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "stream-item-content stream-item-footer" },
+	                        'div',
+	                        { className: 'stream-item-content stream-item-footer' },
 	                        _react2.default.createElement(
-	                            "a",
-	                            { className: "stream-item-link-a", href: "#" },
-	                            "September 03, 2015 19:31:29 GMT"
+	                            'a',
+	                            { className: 'stream-item-link-a', href: '#' },
+	                            'September 03, 2015 19:31:29 GMT'
 	                        )
 	                    ),
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "stream-item-content stream-item-options" },
+	                        'div',
+	                        { className: 'stream-item-content stream-item-options' },
 	                        _react2.default.createElement(
-	                            "div",
-	                            { className: "like-button" },
-	                            _react2.default.createElement("a", { className: "icon-like", href: "#" }),
+	                            'div',
+	                            { className: 'like-button' },
+	                            _react2.default.createElement('a', { className: 'icon-like', href: '#' }),
 	                            _react2.default.createElement(
-	                                "a",
-	                                { className: "counter", href: "#" },
-	                                "150"
+	                                'a',
+	                                { className: 'counter', href: '#' },
+	                                '150'
 	                            )
 	                        )
 	                    )
@@ -20875,14 +20873,14 @@
 	        }
 
 	        _createClass(MainBand, [{
-	            key: "render",
+	            key: 'render',
 	            value: function render() {
 	                return _react2.default.createElement(
-	                    "div",
-	                    { className: "main-content" },
+	                    'div',
+	                    { className: 'main-content' },
 	                    _react2.default.createElement(
-	                        "div",
-	                        { className: "item-pager" },
+	                        'div',
+	                        { className: 'item-pager' },
 	                        _react2.default.createElement(ItemOfBand, null)
 	                    )
 	                );
@@ -20905,9 +20903,14 @@
 	        }
 
 	        _createClass(BodyPage, [{
-	            key: "render",
+	            key: 'render',
 	            value: function render() {
-	                return _react2.default.createElement(MainBand, null);
+	                return _react2.default.createElement(
+	                    'main',
+	                    { className: 'page-main' },
+	                    _react2.default.createElement(MainBand, null),
+	                    _react2.default.createElement(_right_component2.default, null)
+	                );
 	            }
 	        }]);
 
@@ -22864,6 +22867,148 @@
 	module.exports = invariant;
 
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(3)))
+
+/***/ },
+/* 198 */
+/***/ function(module, exports, __webpack_require__) {
+
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(162)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _react) {
+	    "use strict";
+
+	    Object.defineProperty(exports, "__esModule", {
+	        value: true
+	    });
+
+	    var _react2 = _interopRequireDefault(_react);
+
+	    function _interopRequireDefault(obj) {
+	        return obj && obj.__esModule ? obj : {
+	            default: obj
+	        };
+	    }
+
+	    function _classCallCheck(instance, Constructor) {
+	        if (!(instance instanceof Constructor)) {
+	            throw new TypeError("Cannot call a class as a function");
+	        }
+	    }
+
+	    var _createClass = function () {
+	        function defineProperties(target, props) {
+	            for (var i = 0; i < props.length; i++) {
+	                var descriptor = props[i];
+	                descriptor.enumerable = descriptor.enumerable || false;
+	                descriptor.configurable = true;
+	                if ("value" in descriptor) descriptor.writable = true;
+	                Object.defineProperty(target, descriptor.key, descriptor);
+	            }
+	        }
+
+	        return function (Constructor, protoProps, staticProps) {
+	            if (protoProps) defineProperties(Constructor.prototype, protoProps);
+	            if (staticProps) defineProperties(Constructor, staticProps);
+	            return Constructor;
+	        };
+	    }();
+
+	    function _possibleConstructorReturn(self, call) {
+	        if (!self) {
+	            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
+	        }
+
+	        return call && (typeof call === "object" || typeof call === "function") ? call : self;
+	    }
+
+	    function _inherits(subClass, superClass) {
+	        if (typeof superClass !== "function" && superClass !== null) {
+	            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
+	        }
+
+	        subClass.prototype = Object.create(superClass && superClass.prototype, {
+	            constructor: {
+	                value: subClass,
+	                enumerable: false,
+	                writable: true,
+	                configurable: true
+	            }
+	        });
+	        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
+	    }
+
+	    var AskQest = function (_React$Component) {
+	        _inherits(AskQest, _React$Component);
+
+	        function AskQest() {
+	            _classCallCheck(this, AskQest);
+
+	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(AskQest).call(this));
+
+	            _this.state = {};
+	            return _this;
+	        }
+
+	        _createClass(AskQest, [{
+	            key: "render",
+	            value: function render() {
+	                return _react2.default.createElement(
+	                    "div",
+	                    { className: "ask-box" },
+	                    _react2.default.createElement(
+	                        "h3",
+	                        null,
+	                        "Задай Вопрос",
+	                        _react2.default.createElement(
+	                            "span",
+	                            null,
+	                            "@Einshtein"
+	                        )
+	                    ),
+	                    _react2.default.createElement(
+	                        "form",
+	                        { id: "ask-form", autoComplete: "off", className: "new-question" },
+	                        _react2.default.createElement(
+	                            "div",
+	                            { className: "question" },
+	                            _react2.default.createElement("textarea", { placeholder: "Расскажи, что там навопросил",
+	                                id: "question_text" })
+	                        ),
+	                        _react2.default.createElement("div", { className: "option-bar" })
+	                    )
+	                );
+	            }
+	        }]);
+
+	        return AskQest;
+	    }(_react2.default.Component);
+
+	    var RigthComponent = function (_React$Component2) {
+	        _inherits(RigthComponent, _React$Component2);
+
+	        function RigthComponent() {
+	            _classCallCheck(this, RigthComponent);
+
+	            var _this2 = _possibleConstructorReturn(this, Object.getPrototypeOf(RigthComponent).call(this));
+
+	            _this2.state = {};
+	            return _this2;
+	        }
+
+	        _createClass(RigthComponent, [{
+	            key: "render",
+	            value: function render() {
+	                return _react2.default.createElement(
+	                    "div",
+	                    { className: "right-main-component" },
+	                    _react2.default.createElement(AskQest, null)
+	                );
+	            }
+	        }]);
+
+	        return RigthComponent;
+	    }(_react2.default.Component);
+
+	    exports.default = RigthComponent;
+	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ }
 /******/ ]);
