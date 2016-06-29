@@ -1,2 +1,6 @@
 node_modules/
+public/lib/source.js
 __pycache__/
+source.js
+*.log
+*.pyc
