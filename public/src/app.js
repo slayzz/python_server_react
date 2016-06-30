@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-//import Person from './components/person_component'
+import $ from 'jquery'; //import Person from './components/person_component'
 //import Tweet from './components/tweet_component';
 
 import Header from './components/header_component';
@@ -29,15 +29,38 @@ ReactDOM.render(
         <Header />
         <div className="all-content">
             <div className="rsp-container">
-                <main className="page-main">
                     <TopBar />
                     <Main />
-                </main>
             </div>
         </div>
     </div>
     , document.getElementById('container')
 );
+// $.ajax({
+//     ulr: '/',
+//     complete: (self, textStatus)=>{
+//         console.log(self);
+//         console.log(textStatus);
+//     },
+//     success: (data,second) =>{
+//         // console.log(data);
+//         // console.log(second);
+//     },
+//     error: (xhr, textStatus, er) => {
+//         console.log(textStatus);
+//         console.log(er);
+//     },
+//     dataType: 'json',
+//     type: 'POST',
+//     data: {
+//         action: 'userRegister',
+//         username: 'siska',
+//         email: 'some@ouou.ru',
+//         fullName: 'some',
+//         pass: '12345'
+//     }
+// });
+
 //ReactDOM.render(
     //, document.getElementsByClassName('page-main-content')[0]
 //);

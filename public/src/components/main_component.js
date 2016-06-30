@@ -1,4 +1,5 @@
 import React from 'react';
+import RightComponent from './right_component';
 
 class ItemOfBand extends React.Component{
     constructor(){
@@ -16,8 +17,6 @@ class ItemOfBand extends React.Component{
                 <div className="stream-item-content stream-item-footer">
                     <a className="stream-item-link-a" href="#">September 03, 2015 19:31:29 GMT</a>
                 </div>
-                {/*<div className="stream-item-content tstream-item-link">
-                </div>*/}
                 <div className="stream-item-content stream-item-options">
                     <div className="like-button">
                         <a className="icon-like" href="#">
@@ -63,7 +62,10 @@ export default class BodyPage extends React.Component {
 
     render(){
         return(
-            <MainBand />
+            <main className="page-main">
+                <MainBand />
+                <RightComponent />
+            </main>
         );
     }
 

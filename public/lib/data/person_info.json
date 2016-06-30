@@ -1,13 +1,23 @@
 [
     {
-        "id" : 1,
-        "first_name" : "Denis",
-        "second_name": "Gnatyk"
-    },
-    {
-        "id": 2,
-        "first_name" : "Tanya",
-        "second_name": "Kulikova"
+        "user_id": 42,
+        "name":"Denis",
+        "surname": "Gnatyk",
+        "brief_name": "denisgnatyk",
+        "email":"slayzz@mail.ru",
+        "Asks":[
+            {
+                "date": "05.06.2016:12345",
+                "question":"Did you fuck a car?",
+                "answer":"",
+                "is_answered":false
+            }
+            {
+                "date": "07.06.2016:12345",
+                "question":"Did you destroy a car?",
+                "answer":"Everyday, man!",
+                "is_answered":true
+            }
+        ]
     }
 ]
-
