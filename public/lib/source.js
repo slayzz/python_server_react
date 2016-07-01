@@ -32919,11 +32919,15 @@
 	        _createClass(ModalWindow, [{
 	            key: 'closeModal',
 	            value: function closeModal(e) {
-	                this.props.dispatch(_actions2.default.modalShow({ style: 'none', which: 'none', topic: 'none' }));
+	                // console.log(e.target);
+	                if (e.target.className === 'util-container' || e.target.className === 'util-close') {
+	                    this.props.dispatch(_actions2.default.modalShow({ style: 'none', which: 'none', topic: 'none' }));
+	                }
 	            }
 	        }, {
 	            key: 'componentWillReceiveProps',
 	            value: function componentWillReceiveProps(nextProps) {
+	                //Какой окно октрыть, выбираем, в зависимости от параметров
 	                switch (nextProps.modal.which) {
 	                    case 'register':
 	                        this.setState({
@@ -32957,10 +32961,10 @@
 
 	                return _react2.default.createElement(
 	                    'div',
-	                    { className: 'modal-window', onClick: this.closeModal.bind(this), style: this.props.modal.displayModal },
+	                    { className: 'modal-window', style: this.props.modal.displayModal },
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'util-container' },
+	                        { className: 'util-container', onClick: this.closeModal.bind(this) },
 	                        _react2.default.createElement(
 	                            'div',
 	                            { className: 'util-center' },
@@ -32988,10 +32992,10 @@
 	                                ),
 	                                _react2.default.createElement(
 	                                    'form',
-	                                    { id: 'sign-up-form' },
+	                                    { id: 'sign-up-form', style: this.state.register },
 	                                    _react2.default.createElement(
 	                                        'div',
-	                                        { className: 'input-form-box', style: this.state.register },
+	                                        { className: 'input-form-box' },
 	                                        _react2.default.createElement(
 	                                            'div',
 	                                            { className: 'input-form-padding' },
@@ -33064,36 +33068,41 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(177), __webpack_require__(198), __webpack_require__(202)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _redux, _reducers, _reduxLogger) {
-	    'use strict';
+		'use strict';
 
-	    Object.defineProperty(exports, "__esModule", {
-	        value: true
-	    });
-	    exports.default = configureStore;
+		Object.defineProperty(exports, "__esModule", {
+			value: true
+		});
+		exports.default = configureStore;
 
-	    var _reducers2 = _interopRequireDefault(_reducers);
+		var _reducers2 = _interopRequireDefault(_reducers);
 
-	    var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+		var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-	    function _interopRequireDefault(obj) {
-	        return obj && obj.__esModule ? obj : {
-	            default: obj
-	        };
-	    }
+		function _interopRequireDefault(obj) {
+			return obj && obj.__esModule ? obj : {
+				default: obj
+			};
+		}
 
-	    var finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)((0, _reduxLogger2.default)()))(_redux.createStore);
+		var finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)((0, _reduxLogger2.default)()))(_redux.createStore);
 
-	    var modal = {
-	        displayModal: {
-	            display: 'none'
-	        },
-	        which: 'none',
-	        register: 'register'
-	    };
+		var store = {
+			modal: {
+				displayModal: {
+					display: 'none'
+				},
+				which: 'none',
+				register: 'register'
+			},
+			some: {
+				name: 'hello'
+			}
+		};
 
-	    function configureStore(modal) {
-	        return finalCreateStore(_reducers2.default, modal);
-	    }
+		function configureStore(store) {
+			return finalCreateStore(_reducers2.default, store);
+		}
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ },
@@ -33249,6 +33258,7 @@
 	            topic: 'register'
 	        } : arguments[0];
 	        var action = arguments[1];
+
 
 	        switch (action.type) {
 	            case 'MODAL_REGISTER':

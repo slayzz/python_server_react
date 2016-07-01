@@ -7,6 +7,7 @@ export default function reducer(modal={
     which: 'none',
     topic: 'register'
 } , action){
+
     switch (action.type){
         case 'MODAL_REGISTER':
             return Object.assign({},modal,{

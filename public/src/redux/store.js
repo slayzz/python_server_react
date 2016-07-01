@@ -7,15 +7,20 @@ let finalCreateStore = compose(
     applyMiddleware(logger())
 )(createStore);
 
-let modal = {
-	displayModal: {
-		display : 'none'
+let store = {
+	modal :{
+		displayModal: {
+			display : 'none'
+		},
+	    which: 'none',
+	    register: 'register'
 	},
-    which: 'none',
-    register: 'register'
+	some: {
+		name : 'hello'
+	}
 };
 
-export default function configureStore(modal)
+export default function configureStore(store)
 {
-    return finalCreateStore(rootReducer, modal);
+    return finalCreateStore(rootReducer, store);
 }

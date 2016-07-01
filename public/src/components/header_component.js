@@ -2,28 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import actions from '../redux/actions';
 
-// class Modal extends React.Component{
-//     constructor() {
-//         super();
-//         this.state = {
-//
-//         };
-//     }
-//
-//     componentDidUpdate(){
-//         console.log('Update Modal');
-//         console.log(this.props);
-//     }
-//     render(){
-//         return(
-//             <div className="modal-window" style={this.props.display}>
-//                 <p>Пиписька</p>
-//             </div>
-//         );
-//     }
-// }
-
-
 
 export default class Header extends React.Component{
     constructor() {

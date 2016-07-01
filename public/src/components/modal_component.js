@@ -17,11 +17,15 @@ class ModalWindow extends React.Component{
         };
     }
     closeModal(e){
-        this.props.dispatch(actions.modalShow({style: 'none', which: 'none', topic: 'none'}));
+        // console.log(e.target);
+        if (e.target.className === 'util-container' || e.target.className === 'util-close'){
+            this.props.dispatch(actions.modalShow({style: 'none', which: 'none', topic: 'none'}));
+        }
     }
 
 
     componentWillReceiveProps(nextProps){
+        //Какой окно октрыть, выбираем, в зависимости от параметров
         switch (nextProps.modal.which){
             case 'register':
                 this.setState({
@@ -53,8 +57,8 @@ class ModalWindow extends React.Component{
     render(){
 
         return (
-            <div className="modal-window" onClick={this.closeModal.bind(this)} style={this.props.modal.displayModal}>
-                <div className="util-container">
+            <div className="modal-window"  style={this.props.modal.displayModal}>
+                <div className="util-container" onClick={this.closeModal.bind(this)}>
                     <div className="util-center">
                         <div className="box-head">
                             <div className="box-title">
@@ -67,8 +71,8 @@ class ModalWindow extends React.Component{
                             <h2 className="strike-throught">
                                 <span>Вопрошашечки</span>
                             </h2>
-                            <form id="sign-up-form">
-                                <div className="input-form-box" style={this.state.register}>
+                            <form id="sign-up-form" style={this.state.register}>
+                                <div className="input-form-box" >
                                     <div className="input-form-padding">
                                         <input placeholder="Username" className="input-form" type="text"/>
                                     </div>
@@ -82,8 +86,6 @@ class ModalWindow extends React.Component{
                                         <input placeholder="Email" className="input-form" type="text"/>
                                     </div>
                                 </div>
-                                {/*<h2 className="strike-throught-bot">
-                                </h2>*/}
                                 <div className="simple-form-item">
                                     <input className="btn-primary-wide" type="submit"/>
                                 </div>
