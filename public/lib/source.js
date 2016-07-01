@@ -30571,18 +30571,19 @@
 
 	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Header).call(this));
 
-	            _this.state = {
-	                cssStyleModal: {
-	                    display: 'none'
-	                }
-	            };
+	            _this.state = {};
 	            return _this;
 	        }
 
 	        _createClass(Header, [{
-	            key: 'openModal',
-	            value: function openModal() {
-	                this.props.dispatch(_actions2.default.modalRegister('block'));
+	            key: 'openRegister',
+	            value: function openRegister(e) {
+	                this.props.dispatch(_actions2.default.modalShow({ style: 'block', which: 'register', topic: 'Регистрация' }));
+	            }
+	        }, {
+	            key: 'openLogin',
+	            value: function openLogin(e) {
+	                this.props.dispatch(_actions2.default.modalShow({ style: 'block', which: 'login', topic: 'Авторизация' }));
 	            }
 	        }, {
 	            key: 'componentDidUpdate',
@@ -30611,12 +30612,12 @@
 	                                { className: 'topbar-right-user' },
 	                                _react2.default.createElement(
 	                                    'a',
-	                                    { href: '#', onClick: this.openModal.bind(this) },
+	                                    { href: '#', onClick: this.openRegister.bind(this) },
 	                                    'Зарегистрироваться'
 	                                ),
 	                                _react2.default.createElement(
 	                                    'a',
-	                                    { href: '#' },
+	                                    { href: '#', onClick: this.openLogin.bind(this) },
 	                                    'Войти'
 	                                )
 	                            )
@@ -32210,10 +32211,12 @@
 	    }
 
 	    var actions = {
-	        modalRegister: function modalRegister(decor) {
+	        modalShow: function modalShow(decor) {
 	            return {
 	                type: 'MODAL_REGISTER',
-	                style: decor
+	                style: decor.style,
+	                which: decor.which,
+	                topic: decor.topic
 	            };
 	        },
 
@@ -32902,24 +32905,59 @@
 
 	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ModalWindow).call(this));
 
-	            _this.state = {};
+	            _this.state = {
+	                register: {
+	                    display: 'none'
+	                },
+	                login: {
+	                    display: 'none'
+	                }
+	            };
 	            return _this;
 	        }
 
 	        _createClass(ModalWindow, [{
+	            key: 'closeModal',
+	            value: function closeModal(e) {
+	                this.props.dispatch(_actions2.default.modalShow({ style: 'none', which: 'none', topic: 'none' }));
+	            }
+	        }, {
 	            key: 'componentWillReceiveProps',
 	            value: function componentWillReceiveProps(nextProps) {
-	                console.log('LOL Modal get props');
-	                console.log(nextProps);
+	                switch (nextProps.modal.which) {
+	                    case 'register':
+	                        this.setState({
+	                            register: {
+	                                display: 'block'
+	                            }
+	                        });
+	                        break;
+	                    case 'login':
+	                        this.setState({
+	                            login: {
+	                                display: 'block'
+	                            }
+	                        });
+	                        break;
+	                    default:
+	                        this.setState({
+	                            register: {
+	                                display: 'none'
+	                            },
+	                            login: {
+	                                display: 'none'
+	                            }
+	                        });
+	                        break;
+	                }
 	            }
 	        }, {
 	            key: 'render',
 	            value: function render() {
-	                console.log(this.props);
 
 	                return _react2.default.createElement(
 	                    'div',
-	                    { className: 'modal-window', style: this.props.modal.displayStyle },
+	                    { className: 'modal-window', onClick: this.closeModal.bind(this), style: this.props.modal.displayModal },
 	                    _react2.default.createElement(
 	                        'div',
 	                        { className: 'util-container' },
@@ -32932,9 +32970,9 @@
 	                                _react2.default.createElement(
 	                                    'div',
 	                                    { className: 'box-title' },
-	                                    'Регистрация'
+	                                    this.props.modal.topic
 	                                ),
-	                                _react2.default.createElement('a', { href: '#', className: 'util-close' })
+	                                _react2.default.createElement('a', { href: '#', className: 'util-close', onClick: this.closeModal.bind(this) })
 	                            ),
 	                            _react2.default.createElement(
 	                                'div',
@@ -32945,7 +32983,7 @@
 	                                    _react2.default.createElement(
 	                                        'span',
 	                                        null,
-	                                        'Регистрация'
+	                                        'Вопрошашечки'
 	                                    )
 	                                ),
 	                                _react2.default.createElement(
@@ -32953,26 +32991,49 @@
 	                                    { id: 'sign-up-form' },
 	                                    _react2.default.createElement(
 	                                        'div',
+	                                        { className: 'input-form-box', style: this.state.register },
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'input-form-padding' },
+	                                            _react2.default.createElement('input', { placeholder: 'Username', className: 'input-form', type: 'text' })
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'input-form-padding' },
+	                                            _react2.default.createElement('input', { placeholder: 'Password', className: 'input-form', type: 'text' })
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'input-form-padding' },
+	                                            _react2.default.createElement('input', { placeholder: 'Full Name', className: 'input-form', type: 'text' })
+	                                        ),
+	                                        _react2.default.createElement(
+	                                            'div',
+	                                            { className: 'input-form-padding' },
+	                                            _react2.default.createElement('input', { placeholder: 'Email', className: 'input-form', type: 'text' })
+	                                        )
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'simple-form-item' },
+	                                        _react2.default.createElement('input', { className: 'btn-primary-wide', type: 'submit' })
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'form',
+	                                    { id: 'sign-up-form', style: this.state.login },
+	                                    _react2.default.createElement(
+	                                        'div',
 	                                        { className: 'input-form-box' },
 	                                        _react2.default.createElement(
 	                                            'div',
 	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { className: 'input-form', type: 'text' })
+	                                            _react2.default.createElement('input', { placeholder: 'Username', className: 'input-form', type: 'text' })
 	                                        ),
 	                                        _react2.default.createElement(
 	                                            'div',
 	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { className: 'input-form', type: 'text' })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { className: 'input-form', type: 'text' })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { className: 'input-form', type: 'text' })
+	                                            _react2.default.createElement('input', { placeholder: 'Password', className: 'input-form', type: 'text' })
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
@@ -33003,34 +33064,36 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(177), __webpack_require__(198), __webpack_require__(202)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _redux, _reducers, _reduxLogger) {
-		'use strict';
+	    'use strict';
 
-		Object.defineProperty(exports, "__esModule", {
-			value: true
-		});
-		exports.default = configureStore;
+	    Object.defineProperty(exports, "__esModule", {
+	        value: true
+	    });
+	    exports.default = configureStore;
 
-		var _reducers2 = _interopRequireDefault(_reducers);
+	    var _reducers2 = _interopRequireDefault(_reducers);
 
-		var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+	    var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
 
-		function _interopRequireDefault(obj) {
-			return obj && obj.__esModule ? obj : {
-				default: obj
-			};
-		}
+	    function _interopRequireDefault(obj) {
+	        return obj && obj.__esModule ? obj : {
+	            default: obj
+	        };
+	    }
 
-		var finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)((0, _reduxLogger2.default)()))(_redux.createStore);
+	    var finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)((0, _reduxLogger2.default)()))(_redux.createStore);
 
-		function configureStore() {
-			var initialState = arguments.length <= 0 || arguments[0] === undefined ? { modal: {
-					displayStyle: {
-						display: 'none'
-					}
-				} } : arguments[0];
+	    var modal = {
+	        displayModal: {
+	            display: 'none'
+	        },
+	        which: 'none',
+	        register: 'register'
+	    };
 
-			return finalCreateStore(_reducers2.default, initialState);
-		}
+	    function configureStore(modal) {
+	        return finalCreateStore(_reducers2.default, modal);
+	    }
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ },
@@ -33178,13 +33241,26 @@
 	    });
 	    exports.default = reducer;
 	    function reducer() {
-	        var modal = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	        var modal = arguments.length <= 0 || arguments[0] === undefined ? {
+	            displayModal: {
+	                display: 'none'
+	            },
+	            which: 'none',
+	            topic: 'register'
+	        } : arguments[0];
 	        var action = arguments[1];
 
 	        switch (action.type) {
-
 	            case 'MODAL_REGISTER':
-	                return { displayStyle: { display: action.decor } };
+	                return Object.assign({}, modal, {
+	                    displayModal: {
+	                        display: action.style
+	                    },
+	                    which: action.which,
+	                    topic: action.topic
+	                });
+	            case 'MODAL_LOGIN':
+	                return { displayLogin: { display: action.style } };
 	            default:
 	                return modal;
 	        }

@@ -8,7 +8,8 @@ from http.server import HTTPServer, BaseHTTPRequestHandler, HTTPStatus
 
 
 class EnchantedRequestHandler(BaseHTTPRequestHandler):
-    def __init__(self, request, client_address, _self, requestline, static=None):
+    def __init__(self, request, client_address, _self, requestline, ds,static=None ):
+        self.ds = ds
         self.static = static
         self.ALLOWED_METHODS = ['get', 'post', 'option', 'patch', 'delete']
         self._status_code = [200, 'OK']

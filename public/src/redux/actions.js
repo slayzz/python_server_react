@@ -2,10 +2,12 @@ import $ from 'jquery';
 
 
 let actions = {
-    modalRegister: (decor) => {
+    modalShow: (decor) => {
         return {
             type: 'MODAL_REGISTER',
-            style : decor
+            style : decor.style,
+            which: decor.which,
+            topic: decor.topic
         };
     },
 

@@ -29,13 +29,13 @@ export default class Header extends React.Component{
     constructor() {
         super();
         this.state = {
-            cssStyleModal: {
-                display: 'none'
-            }
         };
     }
-    openModal(){
-        this.props.dispatch(actions.modalRegister('block'));
+    openRegister(e){
+        this.props.dispatch(actions.modalShow({style: 'block', which: 'register', topic: 'Регистрация'}));
+    }
+    openLogin(e){
+        this.props.dispatch(actions.modalShow({style: 'block', which: 'login', topic: 'Авторизация'}));
     }
     componentDidUpdate(){
         console.log('Update Heaader');
@@ -48,8 +48,8 @@ export default class Header extends React.Component{
                     <div className="topbar-container">
                         <a href="/" className="icon-tasbar">Супер Ask</a>
                         <div className="topbar-right-user">
-                            <a href="#" onClick={this.openModal.bind(this)}>Зарегистрироваться</a>
-                            <a href="#">Войти</a>
+                            <a href="#" onClick={this.openRegister.bind(this)}>Зарегистрироваться</a>
+                            <a href="#" onClick={this.openLogin.bind(this)}>Войти</a>
                         </div>
                     </div>
                 </div>

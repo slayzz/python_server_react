@@ -4,12 +4,14 @@ import os
 from urllib.parse import urlparse
 from http.server import HTTPServer
 from .enchanted import StaticHandler
+from .DataStore import initDb
 
 
 class App(object):
     def __init__(self, routes, static_path=None):
         self.static_path = static_path
         self.static = ''
+        self.ds = initDb()
         self.routes = routes
         return super(App, self).__init__()
 
@@ -57,5 +59,5 @@ class App(object):
         except socket.timeout as e:
             return
         else:
-            handler(request, client_address, _self, requestline, self.static)
+            handler(request, client_address, _self, requestline, self.ds,self.static)
 

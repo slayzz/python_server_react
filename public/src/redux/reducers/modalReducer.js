@@ -1,10 +1,23 @@
 
 
-export default function reducer(modal = {}, action){
+export default function reducer(modal={
+	displayModal: {
+		display : 'none'
+	},
+    which: 'none',
+    topic: 'register'
+} , action){
     switch (action.type){
-
         case 'MODAL_REGISTER':
-            return { displayStyle: { display : action.decor } };
+            return Object.assign({},modal,{
+                displayModal: {
+                    display: action.style
+                },
+                which: action.which,
+                topic: action.topic
+            });
+        case 'MODAL_LOGIN':
+            return { displayLogin: { display: action.style } };
         default:
             return modal;
     }
