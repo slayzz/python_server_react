@@ -58,3 +58,4 @@ class App(object):
             return
         else:
             handler(request, client_address, _self, requestline, self.static)
+

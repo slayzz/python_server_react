@@ -81,34 +81,29 @@
 	    //}
 	    //};
 
-<<<<<<< HEAD
+	    // $.ajax({
+	    //     ulr: '/',
+	    //     complete: (self, textStatus)=>{
+	    //     },
+	    //     success: (data,second) =>{
+	    //         console.log(data);
+	    //     },
+	    //     error: (xhr, textStatus, er) => {
+	    //         console.log(textStatus);
+	    //         console.log(er);
+	    //     },
+	    //     contentType: 'application/json; charset=utf-8',
+	    //     type: 'POST',
+	    //     data: JSON.stringify({
+	    //         action: 'userRegister',
+	    //         username: 'siska',
+	    //         email: 'some@ouou.ru',
+	    //         fullName: 'some',
+	    //         pass: '12345'
+	    //     })
+	    // });
+
 	    //import Person from './components/person_component'
-=======
-	    _jquery2.default.ajax({
-	        ulr: '/',
-	        complete: function complete(self, textStatus) {
-	            console.log(self);
-	            console.log(textStatus);
-	        },
-	        success: function success(data, second) {
-	            // console.log(data);
-	            // console.log(second);
-	        },
-	        error: function error(xhr, textStatus, er) {
-	            console.log(textStatus);
-	            console.log(er);
-	        },
-	        dataType: 'application/json; charset=utf-8',
-	        type: 'POST',
-	        data: JSON.stringify({
-	            action: 'userRegister',
-	            username: 'siska',
-	            email: 'some@ouou.ru',
-	            fullName: 'some',
-	            pass: '12345'
-	        })
-	    }); //import Person from './components/person_component'
->>>>>>> dversion
 	    //import Tweet from './components/tweet_component';
 
 	    var store = (0, _store2.default)();
