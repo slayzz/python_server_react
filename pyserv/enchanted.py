@@ -5,7 +5,6 @@ import json
 from mimetypes import guess_type
 from urllib.parse import urlparse
 from http.server import HTTPServer, BaseHTTPRequestHandler, HTTPStatus
-from .DataStore import DataStore
 
 
 class EnchantedRequestHandler(BaseHTTPRequestHandler):
@@ -17,7 +16,6 @@ class EnchantedRequestHandler(BaseHTTPRequestHandler):
         self._headers = {
             'Content-Type': 'text/html',
         }
-        self.ds = DataStore();
 
         self.requestline = requestline
         self.query_params = {}

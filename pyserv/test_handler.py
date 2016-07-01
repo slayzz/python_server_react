@@ -9,6 +9,7 @@ class testHandler(EnchantedRequestHandler):
         # self.end_headers()
         # handler.wfile.write(b'<h1>Hello</h1>')
         # print(self.ds)
+        print(self.ds)
         f = io.open('./public/templates/index.html', 'r')
         self.write(f.read())
 
