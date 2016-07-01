@@ -16,12 +16,6 @@ class AskQest extends React.Component{
                     <div className="question">
                         <textarea placeholder="Расскажи, что там навопросил"
                             id="question_text">
-<<<<<<< HEAD
-
-                        </textarea>
-                    </div>
-                    <div className="option-bar">
-=======
                         </textarea>
                     </div>
                     <div className="option-bar">
@@ -31,7 +25,6 @@ class AskQest extends React.Component{
                         <label for="question-anonymous" className="option-bar-askmode">
                             <span>Спроси Анонимно</span>
                         </label>
->>>>>>> f19aa2bdce17c6f09606f67959350673a0e5bf57
                     </div>
 
                 </form>

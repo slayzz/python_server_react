@@ -1,21 +1,13 @@
-import http.server
-import PostHandler
-import routes
+from pyserv.pyserv import App
+
+from pyserv.test_handler import testHandler
 
 
-class HttpRequest(http.server.BaseHTTPRequestHandler):
+app = App([
+    (r'^/', testHandler),
+],
+static_path="./public/")
 
-    def do_GET(self):
-        route = routes.Route(self)
-        route.run()
-
-        del route
-
-    def do_POST(self):
-        postHandler = PostHandler.PostHandler(self)
-        postHandler.run();
-
-
-
-print ('server works on port', 8080)
-http.server.HTTPServer(('localhost', 8080), HttpRequest).serve_forever()
+if __name__ == '__main__':
+    print ('server works on port', 8080)
+    app.start('localhost', 8080)

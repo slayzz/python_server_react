@@ -79,8 +79,33 @@
 	    //}
 	    //};
 
-	    var store = (0, _store2.default)(); //import Person from './components/person_component'
+	    _jquery2.default.ajax({
+	        ulr: '/',
+	        complete: function complete(self, textStatus) {
+	            console.log(self);
+	            console.log(textStatus);
+	        },
+	        success: function success(data, second) {
+	            // console.log(data);
+	            // console.log(second);
+	        },
+	        error: function error(xhr, textStatus, er) {
+	            console.log(textStatus);
+	            console.log(er);
+	        },
+	        dataType: 'application/json; charset=utf-8',
+	        type: 'POST',
+	        data: JSON.stringify({
+	            action: 'userRegister',
+	            username: 'siska',
+	            email: 'some@ouou.ru',
+	            fullName: 'some',
+	            pass: '12345'
+	        })
+	    }); //import Person from './components/person_component'
 	    //import Tweet from './components/tweet_component';
+
+	    var store = (0, _store2.default)();
 
 	    _reactDom2.default.render(_react2.default.createElement(
 	        'div',
