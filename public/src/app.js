@@ -1,11 +1,13 @@
 import ReactDOM from 'react-dom';
 import React from 'react';
-import $ from 'jquery'; //import Person from './components/person_component'
+import $ from 'jquery';
+ //import Person from './components/person_component'
 //import Tweet from './components/tweet_component';
 
 import Header from './components/header_component';
 import TopBar from './components/topbar_component';
 import Main from './components/main_component';
+import Modal from './components/modal_component';
 
 import configureStore from './redux/store';
 import { Provider } from 'react-redux';
@@ -25,15 +27,18 @@ import { Provider } from 'react-redux';
 let store = configureStore();
 
 ReactDOM.render(
-    <div>
-        <Header />
-        <div className="all-content">
-            <div className="rsp-container">
-                    <TopBar />
-                    <Main />
+    <Provider store={store}>
+        <div>
+            <Header />
+            <div className="all-content">
+                <div className="rsp-container">
+                        <TopBar />
+                        <Main />
+                </div>
             </div>
+            <Modal />
         </div>
-    </div>
+    </Provider>
     , document.getElementById('container')
 );
 // $.ajax({

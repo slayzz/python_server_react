@@ -433,3 +433,130 @@ body{
 .button-like{
     color:blue;
 }
+
+
+/*Modal Windows*/
+/*------------*/
+.modal-window{
+    z-index: 1001;
+    background: rgba(0,0,0,0.8);
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.util-container{
+    top: 0px;
+    height: 904px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    position: relative;
+    width: 100%;
+    text-align: center;
+    white-space:nowrap;
+}
+
+.util-container{
+    white-space: normal;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.util-container::before{
+    content: '';
+    height: 100%;
+    margin-right: -5px;
+}
+
+.util-center{
+    white-space: normal;
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.box-head{
+    min-width: 460px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    color: #333;
+    font-size: 18px;
+    line-height: 24px;
+    text-align: center;
+    background: #fff;
+    max-width: 720px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 4px;
+}
+.box-title{
+    padding: 15px 10px;
+}
+
+.util-close{
+    background: inherit;
+    font-size: 14px;
+    line-height: 35px;
+    width:35px;
+    border-radius: 5px;
+    color: #dcdcdc;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 0;
+    width: 54px;
+}
+
+.util-close::before{
+    content: '\e830';
+}
+
+
+.box-body{
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-radius: 4px;
+    background: #fff;
+    max-width: 720px;
+    min-width: 280px;
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+}
+
+.input-form-box{
+    margin: 0 auto;
+    max-width: 400px;
+}
+
+#sign-up-form{
+    margin: 0 auto;
+    max-width: 400px;
+    text-align: left;
+    display: block;
+}
+
+.input-form-box{
+    overflow: hidden;
+    margin: 0 10px;
+    border-radius: 2px;
+}
+
+.input-form-padding{
+    position: relative;
+    padding: 12px 10px;
+    margin-top: 15px;
+    border: 1px solid #dbdbdb;
+    background: #fff;
+}
+.input-form{
+    position: relative;
+    display: block;
+    font-size: 	14px;
+    z-index: 100;
+}
+
+.simple-form-item{
+
+}

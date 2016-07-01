@@ -2,6 +2,7 @@ import DataStore
 import urllib.parse
 
 class PostHandler():
+
     def __init__(self,handler):
         self.handler = handler
         self.data = handler.rfile.peek()

@@ -8,6 +8,11 @@ let finalCreateStore = compose(
 )(createStore);
 
 
-export default function configureStore(initialState = {todos: [], users: []}){
+export default function configureStore(initialState = {modal : {
+	displayStyle: {
+		display : 'none'
+	}
+}})
+{
     return finalCreateStore(rootReducer, initialState);
 }

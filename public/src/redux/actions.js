@@ -2,6 +2,12 @@ import $ from 'jquery';
 
 
 let actions = {
+    modalRegister: (decor) => {
+        return {
+            type: 'MODAL_REGISTER',
+            style : decor
+        };
+    },
 
     addTodo: (text) => {
         return {
@@ -34,7 +40,7 @@ let actions = {
         return {
             type: 'SET_ALL_USERS',
             data
-        }
+        };
     }
 
 };

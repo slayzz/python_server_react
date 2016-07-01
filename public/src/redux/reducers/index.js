@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux';
 import tweetReducer from './tweetReducer';
 import userReducer from './userReducer';
+import modalReducer from './modalReducer'
 
 const rootReducer = combineReducers({
-    todos: tweetReducer,
-    users: userReducer
+    modal: modalReducer
 });
 
 export default rootReducer;

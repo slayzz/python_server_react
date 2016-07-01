@@ -1,24 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import actions from '../redux/actions';
 
-class Register extends React.Component{
-    constructor() {
-        super();
-        this.state = {
-
-        };
-    }
-
-    render(){
-        return(
-            <div>
-                <a href="#" onClick={this.openModal}>Зарегистрироваться</a>
-                <div style={{display: 'none'}}>
-                    <p>Hello man</p>
-                </div>
-            </div>
-        );
-    }
-}
+// class Modal extends React.Component{
+//     constructor() {
+//         super();
+//         this.state = {
+//
+//         };
+//     }
+//
+//     componentDidUpdate(){
+//         console.log('Update Modal');
+//         console.log(this.props);
+//     }
+//     render(){
+//         return(
+//             <div className="modal-window" style={this.props.display}>
+//                 <p>Пиписька</p>
+//             </div>
+//         );
+//     }
+// }
 
 
 
@@ -26,13 +29,17 @@ export default class Header extends React.Component{
     constructor() {
         super();
         this.state = {
-
+            cssStyleModal: {
+                display: 'none'
+            }
         };
     }
     openModal(){
-        console.log('LOL');
+        this.props.dispatch(actions.modalRegister('block'));
     }
-
+    componentDidUpdate(){
+        console.log('Update Heaader');
+    }
 
     render(){
         return (
@@ -41,7 +48,7 @@ export default class Header extends React.Component{
                     <div className="topbar-container">
                         <a href="/" className="icon-tasbar">Супер Ask</a>
                         <div className="topbar-right-user">
-                            <Register onClick={this.openModal}/>
+                            <a href="#" onClick={this.openModal.bind(this)}>Зарегистрироваться</a>
                             <a href="#">Войти</a>
                         </div>
                     </div>
@@ -50,3 +57,8 @@ export default class Header extends React.Component{
         );
     }
 }
+function mapStateToProps(state){
+    return state;
+}
+
+export default connect(mapStateToProps)(Header);
