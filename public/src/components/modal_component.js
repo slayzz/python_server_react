@@ -31,6 +31,9 @@ class ModalWindow extends React.Component{
                             </a>
                         </div>
                         <div className="box-body">
+                            <h2 className="strike-throught">
+                                <span>Регистрация</span>
+                            </h2>
                             <form id="sign-up-form">
                                 <div className="input-form-box">
                                     <div className="input-form-padding">

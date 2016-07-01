@@ -32940,6 +32940,15 @@
 	                                'div',
 	                                { className: 'box-body' },
 	                                _react2.default.createElement(
+	                                    'h2',
+	                                    { className: 'strike-throught' },
+	                                    _react2.default.createElement(
+	                                        'span',
+	                                        null,
+	                                        'Регистрация'
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
 	                                    'form',
 	                                    { id: 'sign-up-form' },
 	                                    _react2.default.createElement(
