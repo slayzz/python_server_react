@@ -63,6 +63,18 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('container')
 );
+
+let obj = {
+    foo : 'foo',
+    bar : 'bar'
+};
+let second = {};
+({
+    foo: second.a,
+    bar: second.b
+} = obj);
+
+console.log(second);
 // $.ajax({
 //     ulr: '/',
 //     complete: (self, textStatus)=>{

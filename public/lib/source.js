@@ -128,6 +128,17 @@
 	            _react2.default.createElement(_modal_component2.default, null)
 	        )
 	    ), document.getElementById('container'));
+
+	    var obj = {
+	        foo: 'foo',
+	        bar: 'bar'
+	    };
+	    var second = {};
+	    second.a = obj.foo;
+	    second.b = obj.bar;
+
+
+	    console.log(second);
 	    // $.ajax({
 	    //     ulr: '/',
 	    //     complete: (self, textStatus)=>{
@@ -32832,7 +32843,7 @@
 /* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(162), __webpack_require__(170), __webpack_require__(192)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _react, _reactRedux, _actions) {
+	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(162), __webpack_require__(1), __webpack_require__(170), __webpack_require__(192), __webpack_require__(168)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _react, _reactDom, _reactRedux, _actions, _jquery) {
 	    'use strict';
 
 	    Object.defineProperty(exports, "__esModule", {
@@ -32841,7 +32852,11 @@
 
 	    var _react2 = _interopRequireDefault(_react);
 
+	    var _reactDom2 = _interopRequireDefault(_reactDom);
+
 	    var _actions2 = _interopRequireDefault(_actions);
+
+	    var _jquery2 = _interopRequireDefault(_jquery);
 
 	    function _interopRequireDefault(obj) {
 	        return obj && obj.__esModule ? obj : {
@@ -32911,7 +32926,14 @@
 	                },
 	                login: {
 	                    display: 'none'
-	                }
+	                },
+	                warning: {
+	                    style: {
+	                        display: 'none'
+	                    },
+	                    message: ''
+	                },
+	                warningElement: document.querySelector('.warning')
 	            };
 	            return _this;
 	        }
@@ -32919,9 +32941,46 @@
 	        _createClass(ModalWindow, [{
 	            key: 'closeModal',
 	            value: function closeModal(e) {
-	                // console.log(e.target);
 	                if (e.target.className === 'util-container' || e.target.className === 'util-close') {
 	                    this.props.dispatch(_actions2.default.modalShow({ style: 'none', which: 'none', topic: 'none' }));
+	                }
+	            }
+	        }, {
+	            key: 'registerUser',
+	            value: function registerUser(e) {
+	                // console.log(e.form);
+	                e.preventDefault();
+	                var pWarn = document.createElement('p');
+	                pWarn.className = 'all-text-animation';
+	                var userRegLabel = {};
+
+	                var _formRegister$element = this.formRegister.elements;
+	                userRegLabel.username = _formRegister$element.username;
+	                userRegLabel.password = _formRegister$element.password;
+	                userRegLabel.fullName = _formRegister$element.fullName;
+	                userRegLabel.email = _formRegister$element.email;
+
+
+	                var pass = Object.keys(userRegLabel).every(function (item) {
+	                    return userRegLabel[item].value ? true : false;
+	                });
+
+	                //Проверяем все ли поля запонены, если же нет делаем анимацию
+	                if (!pass) {
+	                    var textWarn = document.querySelector('.text-animation') || document.querySelector('.text-animation-blink');
+	                    if (textWarn) {
+	                        var cloneWarn = textWarn.cloneNode(true);
+	                        textWarn.remove();
+	                        this.warningDiv.appendChild(cloneWarn);
+	                        cloneWarn.classList.add('all-text-animation');
+	                        cloneWarn.classList.add('text-animation-blink');
+	                        return;
+	                    }
+
+	                    pWarn.className += ' text-animation';
+	                    pWarn.innerHTML = 'Все поля должны быть заполнены';
+	                    document.querySelector('.warning').appendChild(pWarn);
+	                    this.warningDiv.appendChild(pWarn);
 	                }
 	            }
 	        }, {
@@ -32958,6 +33017,7 @@
 	        }, {
 	            key: 'render',
 	            value: function render() {
+	                var _this2 = this;
 
 	                return _react2.default.createElement(
 	                    'div',
@@ -32976,11 +33036,15 @@
 	                                    { className: 'box-title' },
 	                                    this.props.modal.topic
 	                                ),
-	                                _react2.default.createElement('a', { href: '#', className: 'util-close', onClick: this.closeModal.bind(this) })
+	                                _react2.default.createElement(
+	                                    'a',
+	                                    { href: '#', className: 'util-close', onClick: this.closeModal.bind(this) },
+	                                    ' '
+	                                )
 	                            ),
 	                            _react2.default.createElement(
 	                                'div',
-	                                { className: 'box-body' },
+	                                { className: 'box-body', id: 'main-modal' },
 	                                _react2.default.createElement(
 	                                    'h2',
 	                                    { className: 'strike-throught' },
@@ -32992,29 +33056,31 @@
 	                                ),
 	                                _react2.default.createElement(
 	                                    'form',
-	                                    { id: 'sign-up-form', style: this.state.register },
+	                                    { id: 'sign-up-form', onSubmit: this.registerUser.bind(this), style: this.state.register, ref: function ref(e) {
+	                                            _this2.formRegister = e;
+	                                        } },
 	                                    _react2.default.createElement(
 	                                        'div',
 	                                        { className: 'input-form-box' },
 	                                        _react2.default.createElement(
 	                                            'div',
 	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Username', className: 'input-form', type: 'text' })
+	                                            _react2.default.createElement('input', { placeholder: 'Username', className: 'input-form', type: 'text', name: 'username' })
 	                                        ),
 	                                        _react2.default.createElement(
 	                                            'div',
 	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Password', className: 'input-form', type: 'text' })
+	                                            _react2.default.createElement('input', { placeholder: 'Password', className: 'input-form', type: 'text', name: 'password' })
 	                                        ),
 	                                        _react2.default.createElement(
 	                                            'div',
 	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Full Name', className: 'input-form', type: 'text' })
+	                                            _react2.default.createElement('input', { placeholder: 'Full Name', className: 'input-form', type: 'text', name: 'fullName' })
 	                                        ),
 	                                        _react2.default.createElement(
 	                                            'div',
 	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Email', className: 'input-form', type: 'text' })
+	                                            _react2.default.createElement('input', { placeholder: 'Email', className: 'input-form', type: 'text', name: 'email' })
 	                                        )
 	                                    ),
 	                                    _react2.default.createElement(
@@ -33045,7 +33111,10 @@
 	                                        { className: 'simple-form-item' },
 	                                        _react2.default.createElement('input', { className: 'btn-primary-wide', type: 'submit' })
 	                                    )
-	                                )
+	                                ),
+	                                _react2.default.createElement('div', { className: 'warning', ref: function ref(e) {
+	                                        return _this2.warningDiv = e;
+	                                    } })
 	                            )
 	                        )
 	                    )
