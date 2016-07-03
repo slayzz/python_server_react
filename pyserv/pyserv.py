@@ -21,9 +21,11 @@ class App(object):
     def get_handler(self, path):
         path = urlparse(path).path
         pattern = re.compile(path)
+        print(path)
         for route, handler in self.routes:
             if re.search(pattern, route) is not None:
                 return handler
+
 
         static_file = os.path.abspath(os.path.join(self.static_path, path[1:]))
         if os.path.isfile(static_file):

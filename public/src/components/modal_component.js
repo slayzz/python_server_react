@@ -28,15 +28,40 @@ class ModalWindow extends React.Component{
     }
     closeModal(e){
         if (e.target.className === 'util-container' || e.target.className === 'util-close'){
+            if (this.warningDiv.children.length > 0){
+                this.warningDiv.removeChild(this.warningDiv.firstElementChild)
+            }
             this.props.dispatch(actions.modalShow({style: 'none', which: 'none', topic: 'none'}));
         }
+    }
+
+    warningPopUp(text){
+        let pWarn = document.createElement('p');
+        pWarn.className = 'all-text-animation';
+
+        let textWarn = document.querySelector('.text-animation')|| document.querySelector('.text-animation-blink') ;
+        if (textWarn){
+            let cloneWarn = textWarn.cloneNode(true);
+            textWarn.remove();
+            this.warningDiv.appendChild(cloneWarn);
+            cloneWarn.classList.add('all-text-animation');
+            cloneWarn.classList.add('text-animation-blink');
+            cloneWarn.innerHTML = text;
+            return;
+        }
+
+        pWarn.className += ' text-animation';
+        pWarn.innerHTML = text;
+        document.querySelector('.warning').appendChild(pWarn);
+        this.warningDiv.appendChild(pWarn);
+        return;
     }
 
     registerUser(e){
         // console.log(e.form);
         e.preventDefault();
-        let pWarn = document.createElement('p');
-        pWarn.className = 'all-text-animation';
+        // let pWarn = document.createElement('p');
+        // pWarn.className = 'all-text-animation';
         let userRegLabel = {};
 
         (
@@ -52,23 +77,53 @@ class ModalWindow extends React.Component{
             return userRegLabel[item].value ? true : false;
         });
 
-        //Проверяем все ли поля запонены, если же нет делаем анимацию
+        //Проверяем все ли поля запонены, если же нет, делаем анимацию
         if (!pass){
-            let textWarn = document.querySelector('.text-animation')|| document.querySelector('.text-animation-blink') ;
-            if (textWarn){
-                let cloneWarn = textWarn.cloneNode(true);
-                textWarn.remove();
-                this.warningDiv.appendChild(cloneWarn);
-                cloneWarn.classList.add('all-text-animation');
-                cloneWarn.classList.add('text-animation-blink');
-                return;
-            }
-
-            pWarn.className += ' text-animation';
-            pWarn.innerHTML =`Все поля должны быть заполнены`;
-            document.querySelector('.warning').appendChild(pWarn);
-            this.warningDiv.appendChild(pWarn);
+            return this.warningPopUp('Все поля должны быть заполнены');
         }
+
+        Object.keys(userRegLabel).forEach((key) =>{
+            userRegLabel[key] = userRegLabel[key].value;
+        });
+
+        userRegLabel.action = 'register';
+
+        $.ajax({
+            url: "/user/",
+            success: (data, status, selfXhr) =>{
+                console.log('LOL' + data);
+                console.log(status);
+                console.log(selfXhr);
+            },
+            error: (xhr, textStatus, er) => {
+                if (xhr.status === 400){
+                    return this.warningPopUp('Пользователь с таким email уже существует');
+                }
+                if (er){
+                    console.log(er);
+                }
+            },
+            contentType: 'application/json',
+            dataType: 'json',
+            type: 'POST',
+            data: userRegLabel
+        });
+
+        // $.ajax({
+        //     ulr: "/user/",
+        //     complete: (self, textStatus)=>{
+        //         console.log(JSON.parse(self.responseText));
+        //     },
+        //     error: (xhr, textStatus, er) => {
+        //         if (er){
+        //             console.log(er);
+        //         }
+        //     },
+        //     contentType: 'application/json',
+        //     dataType: 'json',
+        //     type: 'POST',
+        //     data: userRegLabel
+        // });
 
     }
 

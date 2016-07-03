@@ -32942,16 +32942,44 @@
 	            key: 'closeModal',
 	            value: function closeModal(e) {
 	                if (e.target.className === 'util-container' || e.target.className === 'util-close') {
+	                    if (this.warningDiv.children.length > 0) {
+	                        this.warningDiv.removeChild(this.warningDiv.firstElementChild);
+	                    }
 	                    this.props.dispatch(_actions2.default.modalShow({ style: 'none', which: 'none', topic: 'none' }));
 	                }
 	            }
 	        }, {
-	            key: 'registerUser',
-	            value: function registerUser(e) {
-	                // console.log(e.form);
-	                e.preventDefault();
+	            key: 'warningPopUp',
+	            value: function warningPopUp(text) {
 	                var pWarn = document.createElement('p');
 	                pWarn.className = 'all-text-animation';
+
+	                var textWarn = document.querySelector('.text-animation') || document.querySelector('.text-animation-blink');
+	                if (textWarn) {
+	                    var cloneWarn = textWarn.cloneNode(true);
+	                    textWarn.remove();
+	                    this.warningDiv.appendChild(cloneWarn);
+	                    cloneWarn.classList.add('all-text-animation');
+	                    cloneWarn.classList.add('text-animation-blink');
+	                    cloneWarn.innerHTML = text;
+	                    return;
+	                }
+
+	                pWarn.className += ' text-animation';
+	                pWarn.innerHTML = text;
+	                document.querySelector('.warning').appendChild(pWarn);
+	                this.warningDiv.appendChild(pWarn);
+	                return;
+	            }
+	        }, {
+	            key: 'registerUser',
+	            value: function registerUser(e) {
+	                var _this2 = this;
+
+	                // console.log(e.form);
+	                e.preventDefault();
+	                // let pWarn = document.createElement('p');
+	                // pWarn.className = 'all-text-animation';
 	                var userRegLabel = {};
 
 	                var _formRegister$element = this.formRegister.elements;
@@ -32965,23 +32993,53 @@
 	                    return userRegLabel[item].value ? true : false;
 	                });
 
-	                //Проверяем все ли поля запонены, если же нет делаем анимацию
+	                //Проверяем все ли поля запонены, если же нет, делаем анимацию
 	                if (!pass) {
-	                    var textWarn = document.querySelector('.text-animation') || document.querySelector('.text-animation-blink');
-	                    if (textWarn) {
-	                        var cloneWarn = textWarn.cloneNode(true);
-	                        textWarn.remove();
-	                        this.warningDiv.appendChild(cloneWarn);
-	                        cloneWarn.classList.add('all-text-animation');
-	                        cloneWarn.classList.add('text-animation-blink');
-	                        return;
-	                    }
-
-	                    pWarn.className += ' text-animation';
-	                    pWarn.innerHTML = 'Все поля должны быть заполнены';
-	                    document.querySelector('.warning').appendChild(pWarn);
-	                    this.warningDiv.appendChild(pWarn);
+	                    return this.warningPopUp('Все поля должны быть заполнены');
 	                }
+
+	                Object.keys(userRegLabel).forEach(function (key) {
+	                    userRegLabel[key] = userRegLabel[key].value;
+	                });
+
+	                userRegLabel.action = 'register';
+
+	                _jquery2.default.ajax({
+	                    url: "/user/",
+	                    success: function success(data, status, selfXhr) {
+	                        console.log('LOL' + data);
+	                        console.log(status);
+	                        console.log(selfXhr);
+	                    },
+	                    error: function error(xhr, textStatus, er) {
+	                        if (xhr.status === 400) {
+	                            return _this2.warningPopUp('Пользователь с таким email уже существует');
+	                        }
+	                        if (er) {
+	                            console.log(er);
+	                        }
+	                    },
+	                    contentType: 'application/json',
+	                    dataType: 'json',
+	                    type: 'POST',
+	                    data: userRegLabel
+	                });
+
+	                // $.ajax({
+	                //     ulr: "/user/",
+	                //     complete: (self, textStatus)=>{
+	                //         console.log(JSON.parse(self.responseText));
+	                //     },
+	                //     error: (xhr, textStatus, er) => {
+	                //         if (er){
+	                //             console.log(er);
+	                //         }
+	                //     },
+	                //     contentType: 'application/json',
+	                //     dataType: 'json',
+	                //     type: 'POST',
+	                //     data: userRegLabel
+	                // });
 	            }
 	        }, {
 	            key: 'componentWillReceiveProps',
@@ -33017,7 +33075,7 @@
 	        }, {
 	            key: 'render',
 	            value: function render() {
-	                var _this2 = this;
+	                var _this3 = this;
 
 	                return _react2.default.createElement(
 	                    'div',
@@ -33057,7 +33115,7 @@
 	                                _react2.default.createElement(
 	                                    'form',
 	                                    { id: 'sign-up-form', onSubmit: this.registerUser.bind(this), style: this.state.register, ref: function ref(e) {
-	                                            _this2.formRegister = e;
+	                                            _this3.formRegister = e;
 	                                        } },
 	                                    _react2.default.createElement(
 	                                        'div',
@@ -33113,7 +33171,7 @@
 	                                    )
 	                                ),
 	                                _react2.default.createElement('div', { className: 'warning', ref: function ref(e) {
-	                                        return _this2.warningDiv = e;
+	                                        return _this3.warningDiv = e;
 	                                    } })
 	                            )
 	                        )

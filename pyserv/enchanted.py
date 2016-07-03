@@ -3,12 +3,12 @@ import re
 import os
 import json
 from mimetypes import guess_type
-from urllib.parse import urlparse
+from urllib.parse import parse_qsl
 from http.server import HTTPServer, BaseHTTPRequestHandler, HTTPStatus
 
 
 class EnchantedRequestHandler(BaseHTTPRequestHandler):
-    def __init__(self, request, client_address, _self, requestline, ds,static=None ):
+    def __init__(self, request, client_address, _self, requestline, ds,static=None, ):
         self.ds = ds
         self.static = static
         self.ALLOWED_METHODS = ['get', 'post', 'option', 'patch', 'delete']
@@ -25,6 +25,13 @@ class EnchantedRequestHandler(BaseHTTPRequestHandler):
 
     def write(self, string):
         self._page.append(string.encode())
+
+    def json_res(self,jsonDict):
+        self.send_response(200)
+        self.send_header('Content-Type', 'application/json')
+        self.end_headers()
+        self.write(jsonDict)
+
 
     def send_headers(self):
         for name, value in self._headers.items():
@@ -55,7 +62,9 @@ class EnchantedRequestHandler(BaseHTTPRequestHandler):
             if self.headers.get('Content-Length'):
                 length = int(self.headers['Content-Length'])
 
-            data = self.rfile.read(length).decode()
+            data = parse_qsl(self.rfile.read(length).decode())
+            for key, val in data:
+                self.json_body[key] = val
 
             try:
                 self.json_body = json.loads(data)
@@ -149,3 +158,4 @@ class StaticHandler(EnchantedRequestHandler):
             self.log_error("Request timed out: %r", e)
             self.close_connection = True
             return
+
