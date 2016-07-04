@@ -1,0 +1,22 @@
+{
+  "ecmaVersions": 6,
+  "libs": [
+    "browser",
+    "jquery"
+  ],
+  "loadEagerly": [],
+  "dontLoad": [],
+  "plugins": {
+    "complete_strings": {
+      "maxLength": 20
+    },
+    "node": {},
+    "es_modules": {},
+    "angular": {},
+    "lint": {},
+    "doc_comment": {
+      "strong": false,
+      "fullDocs": true
+    }
+  }
+}

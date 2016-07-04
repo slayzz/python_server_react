@@ -12,8 +12,8 @@ let store = {
 		displayModal: {
 			display : 'none'
 		},
-	    which: 'none',
-	    register: 'register'
+        which: 'none',
+        register: 'register'
 	},
 	some: {
 		name : 'hello'

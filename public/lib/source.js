@@ -81,28 +81,6 @@
 	    //}
 	    //};
 
-	    // $.ajax({
-	    //     ulr: '/',
-	    //     complete: (self, textStatus)=>{
-	    //     },
-	    //     success: (data,second) =>{
-	    //         console.log(data);
-	    //     },
-	    //     error: (xhr, textStatus, er) => {
-	    //         console.log(textStatus);
-	    //         console.log(er);
-	    //     },
-	    //     contentType: 'application/json; charset=utf-8',
-	    //     type: 'POST',
-	    //     data: JSON.stringify({
-	    //         action: 'userRegister',
-	    //         username: 'siska',
-	    //         email: 'some@ouou.ru',
-	    //         fullName: 'some',
-	    //         pass: '12345'
-	    //     })
-	    // });
-
 	    //import Person from './components/person_component'
 	    //import Tweet from './components/tweet_component';
 
@@ -128,45 +106,6 @@
 	            _react2.default.createElement(_modal_component2.default, null)
 	        )
 	    ), document.getElementById('container'));
-
-	    var obj = {
-	        foo: 'foo',
-	        bar: 'bar'
-	    };
-	    var second = {};
-	    second.a = obj.foo;
-	    second.b = obj.bar;
-
-
-	    console.log(second);
-	    // $.ajax({
-	    //     ulr: '/',
-	    //     complete: (self, textStatus)=>{
-	    //         console.log(self);
-	    //         console.log(textStatus);
-	    //     },
-	    //     success: (data,second) =>{
-	    //         // console.log(data);
-	    //         // console.log(second);
-	    //     },
-	    //     error: (xhr, textStatus, er) => {
-	    //         console.log(textStatus);
-	    //         console.log(er);
-	    //     },
-	    //     dataType: 'json',
-	    //     type: 'POST',
-	    //     data: {
-	    //         action: 'userRegister',
-	    //         username: 'siska',
-	    //         email: 'some@ouou.ru',
-	    //         fullName: 'some',
-	    //         pass: '12345'
-	    //     }
-	    // });
-
-	    //ReactDOM.render(
-	    //, document.getElementsByClassName('page-main-content')[0]
-	    //);
 	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
 
 /***/ },
@@ -32843,394 +32782,358 @@
 /* 196 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(162), __webpack_require__(1), __webpack_require__(170), __webpack_require__(192), __webpack_require__(168)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _react, _reactDom, _reactRedux, _actions, _jquery) {
-	    'use strict';
+	'use strict';
 
-	    Object.defineProperty(exports, "__esModule", {
-	        value: true
-	    });
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 
-	    var _react2 = _interopRequireDefault(_react);
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-	    var _reactDom2 = _interopRequireDefault(_reactDom);
+	var _react = __webpack_require__(162);
 
-	    var _actions2 = _interopRequireDefault(_actions);
+	var _react2 = _interopRequireDefault(_react);
 
-	    var _jquery2 = _interopRequireDefault(_jquery);
+	var _reactDom = __webpack_require__(1);
 
-	    function _interopRequireDefault(obj) {
-	        return obj && obj.__esModule ? obj : {
-	            default: obj
-	        };
-	    }
+	var _reactDom2 = _interopRequireDefault(_reactDom);
 
-	    function _classCallCheck(instance, Constructor) {
-	        if (!(instance instanceof Constructor)) {
-	            throw new TypeError("Cannot call a class as a function");
-	        }
-	    }
+	var _reactRedux = __webpack_require__(170);
 
-	    var _createClass = function () {
-	        function defineProperties(target, props) {
-	            for (var i = 0; i < props.length; i++) {
-	                var descriptor = props[i];
-	                descriptor.enumerable = descriptor.enumerable || false;
-	                descriptor.configurable = true;
-	                if ("value" in descriptor) descriptor.writable = true;
-	                Object.defineProperty(target, descriptor.key, descriptor);
-	            }
-	        }
+	var _actions = __webpack_require__(192);
 
-	        return function (Constructor, protoProps, staticProps) {
-	            if (protoProps) defineProperties(Constructor.prototype, protoProps);
-	            if (staticProps) defineProperties(Constructor, staticProps);
-	            return Constructor;
-	        };
-	    }();
+	var _actions2 = _interopRequireDefault(_actions);
 
-	    function _possibleConstructorReturn(self, call) {
-	        if (!self) {
-	            throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-	        }
+	var _jquery = __webpack_require__(168);
 
-	        return call && (typeof call === "object" || typeof call === "function") ? call : self;
-	    }
+	var _jquery2 = _interopRequireDefault(_jquery);
 
-	    function _inherits(subClass, superClass) {
-	        if (typeof superClass !== "function" && superClass !== null) {
-	            throw new TypeError("Super expression must either be null or a function, not " + typeof superClass);
-	        }
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	        subClass.prototype = Object.create(superClass && superClass.prototype, {
-	            constructor: {
-	                value: subClass,
-	                enumerable: false,
-	                writable: true,
-	                configurable: true
-	            }
-	        });
-	        if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass;
-	    }
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	    var ModalWindow = function (_React$Component) {
-	        _inherits(ModalWindow, _React$Component);
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-	        function ModalWindow() {
-	            _classCallCheck(this, ModalWindow);
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-	            var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ModalWindow).call(this));
+	var ModalWindow = function (_React$Component) {
+	    _inherits(ModalWindow, _React$Component);
 
-	            _this.state = {
-	                register: {
+	    function ModalWindow() {
+	        _classCallCheck(this, ModalWindow);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(ModalWindow).call(this));
+
+	        _this.state = {
+	            register: {
+	                display: 'none'
+	            },
+	            login: {
+	                display: 'none'
+	            },
+	            warning: {
+	                style: {
 	                    display: 'none'
 	                },
-	                login: {
-	                    display: 'none'
-	                },
-	                warning: {
-	                    style: {
-	                        display: 'none'
-	                    },
-	                    message: ''
-	                },
-	                warningElement: document.querySelector('.warning')
-	            };
-	            return _this;
-	        }
+	                message: ''
+	            },
+	            warningElement: document.querySelector('.warning')
+	        };
+	        return _this;
+	    }
 
-	        _createClass(ModalWindow, [{
-	            key: 'closeModal',
-	            value: function closeModal(e) {
-	                if (e.target.className === 'util-container' || e.target.className === 'util-close') {
-	                    if (this.warningDiv.children.length > 0) {
-	                        this.warningDiv.removeChild(this.warningDiv.firstElementChild);
-	                    }
-	                    this.props.dispatch(_actions2.default.modalShow({ style: 'none', which: 'none', topic: 'none' }));
+	    _createClass(ModalWindow, [{
+	        key: 'closeModal',
+	        value: function closeModal(e) {
+	            if (e.target.className === 'util-container' || e.target.className === 'util-close') {
+	                if (this.warningDiv.children.length > 0) {
+	                    this.warningDiv.removeChild(this.warningDiv.firstElementChild);
 	                }
+	                this.props.dispatch(_actions2.default.modalShow({ style: 'none', which: 'none', topic: 'none' }));
 	            }
-	        }, {
-	            key: 'warningPopUp',
-	            value: function warningPopUp(text) {
-	                var pWarn = document.createElement('p');
-	                pWarn.className = 'all-text-animation';
+	        }
+	    }, {
+	        key: 'warningPopUp',
+	        value: function warningPopUp(text) {
+	            var pWarn = document.createElement('p');
+	            pWarn.className = 'all-text-animation';
 
-	                var textWarn = document.querySelector('.text-animation') || document.querySelector('.text-animation-blink');
-	                if (textWarn) {
-	                    var cloneWarn = textWarn.cloneNode(true);
-	                    textWarn.remove();
-	                    this.warningDiv.appendChild(cloneWarn);
-	                    cloneWarn.classList.add('all-text-animation');
-	                    cloneWarn.classList.add('text-animation-blink');
-	                    cloneWarn.innerHTML = text;
-	                    return;
-	                }
-
-	                pWarn.className += ' text-animation';
-	                pWarn.innerHTML = text;
-	                document.querySelector('.warning').appendChild(pWarn);
-	                this.warningDiv.appendChild(pWarn);
+	            var textWarn = document.querySelector('.text-animation') || document.querySelector('.text-animation-blink');
+	            if (textWarn) {
+	                var cloneWarn = textWarn.cloneNode(true);
+	                textWarn.remove();
+	                this.warningDiv.appendChild(cloneWarn);
+	                cloneWarn.classList.add('all-text-animation');
+	                cloneWarn.classList.add('text-animation-blink');
+	                cloneWarn.innerHTML = text;
 	                return;
 	            }
-	        }, {
-	            key: 'registerUser',
-	            value: function registerUser(e) {
-	                var _this2 = this;
 
-	                // console.log(e.form);
-	                e.preventDefault();
-	                // let pWarn = document.createElement('p');
-	                // pWarn.className = 'all-text-animation';
-	                var userRegLabel = {};
+	            pWarn.className += ' text-animation';
+	            pWarn.innerHTML = text;
+	            document.querySelector('.warning').appendChild(pWarn);
+	            this.warningDiv.appendChild(pWarn);
+	            return;
+	        }
+	    }, {
+	        key: 'registerUser',
+	        value: function registerUser(e) {
+	            var _this2 = this;
 
-	                var _formRegister$element = this.formRegister.elements;
-	                userRegLabel.username = _formRegister$element.username;
-	                userRegLabel.password = _formRegister$element.password;
-	                userRegLabel.fullName = _formRegister$element.fullName;
-	                userRegLabel.email = _formRegister$element.email;
+	            // console.log(e.form);
+	            e.preventDefault();
+	            // let pWarn = document.createElement('p');
+	            // pWarn.className = 'all-text-animation';
+	            var userRegLabel = {};
+
+	            var _formRegister$element = this.formRegister.elements;
+	            userRegLabel.username = _formRegister$element.username;
+	            userRegLabel.password = _formRegister$element.password;
+	            userRegLabel.fullName = _formRegister$element.fullName;
+	            userRegLabel.email = _formRegister$element.email;
 
 
-	                var pass = Object.keys(userRegLabel).every(function (item) {
-	                    return userRegLabel[item].value ? true : false;
-	                });
+	            var pass = Object.keys(userRegLabel).every(function (item) {
+	                return userRegLabel[item].value ? true : false;
+	            });
 
-	                //Проверяем все ли поля запонены, если же нет, делаем анимацию
-	                if (!pass) {
-	                    return this.warningPopUp('Все поля должны быть заполнены');
-	                }
-
-	                Object.keys(userRegLabel).forEach(function (key) {
-	                    userRegLabel[key] = userRegLabel[key].value;
-	                });
-
-	                userRegLabel.action = 'register';
-
-	                _jquery2.default.ajax({
-	                    url: "/user/",
-	                    success: function success(data, status, selfXhr) {
-	                        console.log('LOL' + data);
-	                        console.log(status);
-	                        console.log(selfXhr);
-	                    },
-	                    error: function error(xhr, textStatus, er) {
-	                        if (xhr.status === 400) {
-	                            return _this2.warningPopUp('Пользователь с таким email уже существует');
-	                        }
-	                        if (er) {
-	                            console.log(er);
-	                        }
-	                    },
-	                    contentType: 'application/json',
-	                    dataType: 'json',
-	                    type: 'POST',
-	                    data: userRegLabel
-	                });
-
-	                // $.ajax({
-	                //     ulr: "/user/",
-	                //     complete: (self, textStatus)=>{
-	                //         console.log(JSON.parse(self.responseText));
-	                //     },
-	                //     error: (xhr, textStatus, er) => {
-	                //         if (er){
-	                //             console.log(er);
-	                //         }
-	                //     },
-	                //     contentType: 'application/json',
-	                //     dataType: 'json',
-	                //     type: 'POST',
-	                //     data: userRegLabel
-	                // });
+	            //Проверяем все ли поля запонены, если же нет, делаем анимацию
+	            if (!pass) {
+	                return this.warningPopUp('Все поля должны быть заполнены');
 	            }
-	        }, {
-	            key: 'componentWillReceiveProps',
-	            value: function componentWillReceiveProps(nextProps) {
-	                //Какой окно октрыть, выбираем, в зависимости от параметров
-	                switch (nextProps.modal.which) {
-	                    case 'register':
-	                        this.setState({
-	                            register: {
-	                                display: 'block'
-	                            }
-	                        });
-	                        break;
-	                    case 'login':
-	                        this.setState({
-	                            login: {
-	                                display: 'block'
-	                            }
-	                        });
-	                        break;
-	                    default:
-	                        this.setState({
-	                            register: {
-	                                display: 'none'
-	                            },
-	                            login: {
-	                                display: 'none'
-	                            }
-	                        });
-	                        break;
-	                }
-	            }
-	        }, {
-	            key: 'render',
-	            value: function render() {
-	                var _this3 = this;
 
-	                return _react2.default.createElement(
+	            Object.keys(userRegLabel).forEach(function (key) {
+	                userRegLabel[key] = userRegLabel[key].value;
+	            });
+
+	            userRegLabel.action = 'register';
+
+	            _jquery2.default.ajax({
+	                url: '/user/',
+	                success: function success(data, status, selfXhr) {
+	                    console.log('LOL' + data);
+	                    console.log(status);
+	                    console.log(selfXhr);
+	                },
+	                error: function error(xhr, textStatus, er) {
+	                    if (xhr.status === 400) {
+	                        return _this2.warningPopUp('Пользователь с таким email уже существует');
+	                    }
+	                    if (er) {
+	                        console.log(er);
+	                    }
+	                },
+	                contentType: 'application/json',
+	                dataType: 'json',
+	                type: 'POST',
+	                data: userRegLabel
+	            });
+
+	            // $.ajax({
+	            //     ulr: "/user/",
+	            //     complete: (self, textStatus)=>{
+	            //         console.log(JSON.parse(self.responseText));
+	            //     },
+	            //     error: (xhr, textStatus, er) => {
+	            //         if (er){
+	            //             console.log(er);
+	            //         }
+	            //     },
+	            //     contentType: 'application/json',
+	            //     dataType: 'json',
+	            //     type: 'POST',
+	            //     data: userRegLabel
+	            // });
+	        }
+	    }, {
+	        key: 'componentWillReceiveProps',
+	        value: function componentWillReceiveProps(nextProps) {
+	            //Какой окно октрыть, выбираем, в зависимости от параметров
+	            switch (nextProps.modal.which) {
+	                case 'register':
+	                    this.setState({
+	                        register: {
+	                            display: 'block'
+	                        }
+	                    });
+	                    break;
+	                case 'login':
+	                    this.setState({
+	                        login: {
+	                            display: 'block'
+	                        }
+	                    });
+	                    break;
+	                default:
+	                    this.setState({
+	                        register: {
+	                            display: 'none'
+	                        },
+	                        login: {
+	                            display: 'none'
+	                        }
+	                    });
+	                    break;
+	            }
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            var _this3 = this;
+
+	            return _react2.default.createElement(
+	                'div',
+	                { className: 'modal-window', style: this.props.modal.displayModal },
+	                _react2.default.createElement(
 	                    'div',
-	                    { className: 'modal-window', style: this.props.modal.displayModal },
+	                    { className: 'util-container', onClick: this.closeModal.bind(this) },
 	                    _react2.default.createElement(
 	                        'div',
-	                        { className: 'util-container', onClick: this.closeModal.bind(this) },
+	                        { className: 'util-center' },
 	                        _react2.default.createElement(
 	                            'div',
-	                            { className: 'util-center' },
+	                            { className: 'box-head' },
 	                            _react2.default.createElement(
 	                                'div',
-	                                { className: 'box-head' },
+	                                { className: 'box-title' },
+	                                this.props.modal.topic
+	                            ),
+	                            _react2.default.createElement(
+	                                'a',
+	                                { href: '#', className: 'util-close', onClick: this.closeModal.bind(this) },
+	                                ' '
+	                            )
+	                        ),
+	                        _react2.default.createElement(
+	                            'div',
+	                            { className: 'box-body', id: 'main-modal' },
+	                            _react2.default.createElement(
+	                                'h2',
+	                                { className: 'strike-throught' },
 	                                _react2.default.createElement(
-	                                    'div',
-	                                    { className: 'box-title' },
-	                                    this.props.modal.topic
-	                                ),
-	                                _react2.default.createElement(
-	                                    'a',
-	                                    { href: '#', className: 'util-close', onClick: this.closeModal.bind(this) },
-	                                    ' '
+	                                    'span',
+	                                    null,
+	                                    'Вопрошашечки'
 	                                )
 	                            ),
 	                            _react2.default.createElement(
-	                                'div',
-	                                { className: 'box-body', id: 'main-modal' },
+	                                'form',
+	                                { id: 'sign-up-form', onSubmit: this.registerUser.bind(this), style: this.state.register, ref: function ref(e) {
+	                                        _this3.formRegister = e;
+	                                    } },
 	                                _react2.default.createElement(
-	                                    'h2',
-	                                    { className: 'strike-throught' },
-	                                    _react2.default.createElement(
-	                                        'span',
-	                                        null,
-	                                        'Вопрошашечки'
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'form',
-	                                    { id: 'sign-up-form', onSubmit: this.registerUser.bind(this), style: this.state.register, ref: function ref(e) {
-	                                            _this3.formRegister = e;
-	                                        } },
+	                                    'div',
+	                                    { className: 'input-form-box' },
 	                                    _react2.default.createElement(
 	                                        'div',
-	                                        { className: 'input-form-box' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Username', className: 'input-form', type: 'text', name: 'username' })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Password', className: 'input-form', type: 'text', name: 'password' })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Full Name', className: 'input-form', type: 'text', name: 'fullName' })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Email', className: 'input-form', type: 'text', name: 'email' })
-	                                        )
+	                                        { className: 'input-form-padding' },
+	                                        _react2.default.createElement('input', { placeholder: 'Username', className: 'input-form', type: 'text', name: 'username' })
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        'div',
-	                                        { className: 'simple-form-item' },
-	                                        _react2.default.createElement('input', { className: 'btn-primary-wide', type: 'submit' })
-	                                    )
-	                                ),
-	                                _react2.default.createElement(
-	                                    'form',
-	                                    { id: 'sign-up-form', style: this.state.login },
-	                                    _react2.default.createElement(
-	                                        'div',
-	                                        { className: 'input-form-box' },
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Username', className: 'input-form', type: 'text' })
-	                                        ),
-	                                        _react2.default.createElement(
-	                                            'div',
-	                                            { className: 'input-form-padding' },
-	                                            _react2.default.createElement('input', { placeholder: 'Password', className: 'input-form', type: 'text' })
-	                                        )
+	                                        { className: 'input-form-padding' },
+	                                        _react2.default.createElement('input', { placeholder: 'Password', className: 'input-form', type: 'text', name: 'password' })
 	                                    ),
 	                                    _react2.default.createElement(
 	                                        'div',
-	                                        { className: 'simple-form-item' },
-	                                        _react2.default.createElement('input', { className: 'btn-primary-wide', type: 'submit' })
+	                                        { className: 'input-form-padding' },
+	                                        _react2.default.createElement('input', { placeholder: 'Full Name', className: 'input-form', type: 'text', name: 'fullName' })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'input-form-padding' },
+	                                        _react2.default.createElement('input', { placeholder: 'Email', className: 'input-form', type: 'text', name: 'email' })
 	                                    )
 	                                ),
-	                                _react2.default.createElement('div', { className: 'warning', ref: function ref(e) {
-	                                        return _this3.warningDiv = e;
-	                                    } })
-	                            )
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'simple-form-item' },
+	                                    _react2.default.createElement('input', { className: 'btn-primary-wide', type: 'submit' })
+	                                )
+	                            ),
+	                            _react2.default.createElement(
+	                                'form',
+	                                { id: 'sign-up-form', style: this.state.login },
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'input-form-box' },
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'input-form-padding' },
+	                                        _react2.default.createElement('input', { placeholder: 'Username', className: 'input-form', type: 'text' })
+	                                    ),
+	                                    _react2.default.createElement(
+	                                        'div',
+	                                        { className: 'input-form-padding' },
+	                                        _react2.default.createElement('input', { placeholder: 'Password', className: 'input-form', type: 'text' })
+	                                    )
+	                                ),
+	                                _react2.default.createElement(
+	                                    'div',
+	                                    { className: 'simple-form-item' },
+	                                    _react2.default.createElement('input', { className: 'btn-primary-wide', type: 'submit' })
+	                                )
+	                            ),
+	                            _react2.default.createElement('div', { className: 'warning', ref: function ref(e) {
+	                                    return _this3.warningDiv = e;
+	                                } })
 	                        )
 	                    )
-	                );
-	            }
-	        }]);
+	                )
+	            );
+	        }
+	    }]);
 
-	        return ModalWindow;
-	    }(_react2.default.Component);
+	    return ModalWindow;
+	}(_react2.default.Component);
 
-	    function mapStateToProps(state) {
-	        return state;
-	    }
+	function mapStateToProps(state) {
+	    return state;
+	}
 
-	    exports.default = (0, _reactRedux.connect)(mapStateToProps)(ModalWindow);
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	exports.default = (0, _reactRedux.connect)(mapStateToProps)(ModalWindow);
 
 /***/ },
 /* 197 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(177), __webpack_require__(198), __webpack_require__(202)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _redux, _reducers, _reduxLogger) {
-		'use strict';
+	'use strict';
 
-		Object.defineProperty(exports, "__esModule", {
-			value: true
-		});
-		exports.default = configureStore;
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.default = configureStore;
 
-		var _reducers2 = _interopRequireDefault(_reducers);
+	var _redux = __webpack_require__(177);
 
-		var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+	var _reducers = __webpack_require__(198);
 
-		function _interopRequireDefault(obj) {
-			return obj && obj.__esModule ? obj : {
-				default: obj
-			};
-		}
+	var _reducers2 = _interopRequireDefault(_reducers);
 
-		var finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)((0, _reduxLogger2.default)()))(_redux.createStore);
+	var _reduxLogger = __webpack_require__(202);
 
-		var store = {
-			modal: {
-				displayModal: {
-					display: 'none'
-				},
-				which: 'none',
-				register: 'register'
+	var _reduxLogger2 = _interopRequireDefault(_reduxLogger);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var finalCreateStore = (0, _redux.compose)((0, _redux.applyMiddleware)((0, _reduxLogger2.default)()))(_redux.createStore);
+
+	var store = {
+		modal: {
+			displayModal: {
+				display: 'none'
 			},
-			some: {
-				name: 'hello'
-			}
-		};
-
-		function configureStore(store) {
-			return finalCreateStore(_reducers2.default, store);
+			which: 'none',
+			register: 'register'
+		},
+		some: {
+			name: 'hello'
 		}
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	};
+
+	function configureStore(store) {
+		return finalCreateStore(_reducers2.default, store);
+	}
 
 /***/ },
 /* 198 */

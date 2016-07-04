@@ -8,7 +8,6 @@ import $ from 'jquery';
 class ModalWindow extends React.Component{
     constructor(){
         super();
-
         this.state = {
             register:{
                 display: 'none'
@@ -29,7 +28,7 @@ class ModalWindow extends React.Component{
     closeModal(e){
         if (e.target.className === 'util-container' || e.target.className === 'util-close'){
             if (this.warningDiv.children.length > 0){
-                this.warningDiv.removeChild(this.warningDiv.firstElementChild)
+                this.warningDiv.removeChild(this.warningDiv.firstElementChild);
             }
             this.props.dispatch(actions.modalShow({style: 'none', which: 'none', topic: 'none'}));
         }
@@ -89,7 +88,7 @@ class ModalWindow extends React.Component{
         userRegLabel.action = 'register';
 
         $.ajax({
-            url: "/user/",
+            url: '/user/',
             success: (data, status, selfXhr) =>{
                 console.log('LOL' + data);
                 console.log(status);

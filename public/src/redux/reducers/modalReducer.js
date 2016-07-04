@@ -1,5 +1,3 @@
-
-
 export default function reducer(modal={
 	displayModal: {
 		display : 'none'

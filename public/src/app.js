@@ -23,29 +23,6 @@ import { Provider } from 'react-redux';
         //id: 13
     //}
 //};
-
-// $.ajax({
-//     ulr: '/',
-//     complete: (self, textStatus)=>{
-//     },
-//     success: (data,second) =>{
-//         console.log(data);
-//     },
-//     error: (xhr, textStatus, er) => {
-//         console.log(textStatus);
-//         console.log(er);
-//     },
-//     contentType: 'application/json; charset=utf-8',
-//     type: 'POST',
-//     data: JSON.stringify({
-//         action: 'userRegister',
-//         username: 'siska',
-//         email: 'some@ouou.ru',
-//         fullName: 'some',
-//         pass: '12345'
-//     })
-// });
-
 let store = configureStore();
 
 ReactDOM.render(
@@ -63,45 +40,3 @@ ReactDOM.render(
     </Provider>
     , document.getElementById('container')
 );
-
-let obj = {
-    foo : 'foo',
-    bar : 'bar'
-};
-let second = {};
-({
-    foo: second.a,
-    bar: second.b
-} = obj);
-
-console.log(second);
-// $.ajax({
-//     ulr: '/',
-//     complete: (self, textStatus)=>{
-//         console.log(self);
-//         console.log(textStatus);
-//     },
-//     success: (data,second) =>{
-//         // console.log(data);
-//         // console.log(second);
-//     },
-//     error: (xhr, textStatus, er) => {
-//         console.log(textStatus);
-//         console.log(er);
-//     },
-//     dataType: 'json',
-//     type: 'POST',
-//     data: {
-//         action: 'userRegister',
-//         username: 'siska',
-//         email: 'some@ouou.ru',
-//         fullName: 'some',
-//         pass: '12345'
-//     }
-// });
-
-
-
-//ReactDOM.render(
-    //, document.getElementsByClassName('page-main-content')[0]
-//);
