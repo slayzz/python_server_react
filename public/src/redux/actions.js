@@ -1,6 +1,7 @@
 import $ from 'jquery';
 
 
+
 let actions = {
     modalShow: (decor) => {
         return {

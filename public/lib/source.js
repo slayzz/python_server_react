@@ -32145,69 +32145,65 @@
 /* 192 */
 /***/ function(module, exports, __webpack_require__) {
 
-	var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;!(__WEBPACK_AMD_DEFINE_ARRAY__ = [exports, __webpack_require__(168)], __WEBPACK_AMD_DEFINE_RESULT__ = function (exports, _jquery) {
-	    'use strict';
+	'use strict';
 
-	    Object.defineProperty(exports, "__esModule", {
-	        value: true
-	    });
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
 
-	    var _jquery2 = _interopRequireDefault(_jquery);
+	var _jquery = __webpack_require__(168);
 
-	    function _interopRequireDefault(obj) {
-	        return obj && obj.__esModule ? obj : {
-	            default: obj
+	var _jquery2 = _interopRequireDefault(_jquery);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var actions = {
+	    modalShow: function modalShow(decor) {
+	        return {
+	            type: 'MODAL_REGISTER',
+	            style: decor.style,
+	            which: decor.which,
+	            topic: decor.topic
+	        };
+	    },
+
+	    addTodo: function addTodo(text) {
+	        return {
+	            type: 'ADD_TWEET',
+	            text: text
+	        };
+	    },
+
+	    likeTweet: function likeTweet(id) {
+	        return {
+	            type: 'LIKE_TWEET',
+	            id: id
+	        };
+	    },
+
+	    deleteTweet: function deleteTweet(id) {
+	        return {
+	            type: 'DELETE_TWEET',
+	            id: id
+	        };
+	    },
+
+	    createNewUserId: function createNewUserId() {
+	        return {
+	            type: 'CREATE_USER_ID',
+	            id: Math.round(Math.random() * 100)
+	        };
+	    },
+	    setAllUsers: function setAllUsers(data) {
+	        return {
+	            type: 'SET_ALL_USERS',
+	            data: data
 	        };
 	    }
 
-	    var actions = {
-	        modalShow: function modalShow(decor) {
-	            return {
-	                type: 'MODAL_REGISTER',
-	                style: decor.style,
-	                which: decor.which,
-	                topic: decor.topic
-	            };
-	        },
+	};
 
-	        addTodo: function addTodo(text) {
-	            return {
-	                type: 'ADD_TWEET',
-	                text: text
-	            };
-	        },
-
-	        likeTweet: function likeTweet(id) {
-	            return {
-	                type: 'LIKE_TWEET',
-	                id: id
-	            };
-	        },
-
-	        deleteTweet: function deleteTweet(id) {
-	            return {
-	                type: 'DELETE_TWEET',
-	                id: id
-	            };
-	        },
-
-	        createNewUserId: function createNewUserId() {
-	            return {
-	                type: 'CREATE_USER_ID',
-	                id: Math.round(Math.random() * 100)
-	            };
-	        },
-	        setAllUsers: function setAllUsers(data) {
-	            return {
-	                type: 'SET_ALL_USERS',
-	                data: data
-	            };
-	        }
-
-	    };
-
-	    exports.default = actions;
-	}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__), __WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	exports.default = actions;
 
 /***/ },
 /* 193 */
@@ -32880,6 +32876,7 @@
 	        value: function registerUser(e) {
 	            var _this2 = this;
 
+	            var regularExp = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
 	            // console.log(e.form);
 	            e.preventDefault();
 	            // let pWarn = document.createElement('p');
@@ -32906,6 +32903,9 @@
 	                userRegLabel[key] = userRegLabel[key].value;
 	            });
 
+	            if (!userRegLabel.email.search(regularExp)) {
+	                return this.warningPopUp('Введите корректный email');
+	            }
 	            userRegLabel.action = 'register';
 
 	            _jquery2.default.ajax({

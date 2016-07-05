@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import actions from '../redux/actions';
 import $ from 'jquery';
 
-
 class ModalWindow extends React.Component{
     constructor(){
         super();
@@ -57,10 +56,8 @@ class ModalWindow extends React.Component{
     }
 
     registerUser(e){
-        // console.log(e.form);
+        let regularExp = /^[-a-z0-9~!$%^&*_=+}{\'?]+(\.[-a-z0-9~!$%^&*_=+}{\'?]+)*@([a-z0-9_][-a-z0-9_]*(\.[-a-z0-9_]+)*\.(aero|arpa|biz|com|coop|edu|gov|info|int|mil|museum|name|net|org|pro|travel|mobi|[a-z][a-z])|([0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}))(:[0-9]{1,5})?$/i;
         e.preventDefault();
-        // let pWarn = document.createElement('p');
-        // pWarn.className = 'all-text-animation';
         let userRegLabel = {};
 
         (
@@ -85,6 +82,9 @@ class ModalWindow extends React.Component{
             userRegLabel[key] = userRegLabel[key].value;
         });
 
+        if (!userRegLabel.email.search(regularExp)){
+            return this.warningPopUp('Введите корректный email');
+        }
         userRegLabel.action = 'register';
 
         $.ajax({

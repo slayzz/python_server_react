@@ -1,3 +1,5 @@
+.eslintrc.json
+.tern-project
 node_modules/
 public/lib/source.js
 __pycache__/
